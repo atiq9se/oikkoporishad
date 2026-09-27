@@ -1,0 +1,223 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/members", label: "Member" },
+];
+
+const communityDropdownItems = [
+  { href: "/community/ec-2026-27", label: "EC-2026-27" },
+  { href: "/community/ec-2025-26", label: "EC-2025-26" },
+  { href: "/community/ec-2024-25", label: "EC-2024-25" },
+];
+
+const memberDropdownItems = [
+  { href: "/members/active", label: "Active Member" },
+  { href: "/members/defaulter", label: "Defaulter" },
+  { href: "/members/dead", label: "Dead" },
+  { href: "/members/suspended", label: "Suspended" },
+  { href: "/members/inactive", label: "Inactive" },
+];
+
+export default function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileMemberOpen, setMobileMemberOpen] = useState(false);
+  const [mobileCommunityOpen, setMobileCommunityOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isMemberActive = memberDropdownItems.some((item) => pathname === item.href);
+  const isCommunityActive = communityDropdownItems.some((item) => pathname === item.href);
+
+  return (
+    <header className="sticky top-0 z-50 bg-white shadow-md">
+      <div className="container-custom flex items-center justify-between py-4">
+        <Link href="/" className="flex items-center gap-2">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white font-bold text-lg">
+            J
+          </div>
+          <span className="text-xl font-bold text-primary">
+            Jalalabad Association
+          </span>
+        </Link>
+
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                pathname === link.href
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-text-light"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          
+          {/* Community Dropdown */}
+          <div className="relative group">
+            <Link
+              href="/community"
+              className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
+                isCommunityActive
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-text-light"
+              }`}
+            >
+              Community
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </Link>
+            
+            <div className="absolute top-full left-0 min-w-[180px] rounded-lg bg-white shadow-lg border border-gray-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 animate-slide-down">
+              {communityDropdownItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`block px-4 py-2 text-sm transition-colors ${
+                    pathname === item.href
+                      ? "bg-primary text-white"
+                      : "text-text-light hover:bg-gray-50 hover:text-primary"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          
+          {/* Member Dropdown */}
+          <div className="relative group">
+            <Link
+              href="/members"
+              className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
+                isMemberActive
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-text-light"
+              }`}
+            >
+              Member
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </Link>
+            
+            <div className="absolute top-full left-0 min-w-[180px] rounded-lg bg-white shadow-lg border border-gray-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 animate-slide-down">
+              {memberDropdownItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`block px-4 py-2 text-sm transition-colors ${
+                    pathname === item.href
+                      ? "bg-primary text-white"
+                      : "text-text-light hover:bg-gray-50 hover:text-primary"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+      {mobileOpen && (
+        <div className="md:hidden border-t border-gray-100 bg-white px-4 pb-6 pt-4">
+          <nav className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={`text-sm font-medium ${
+                  pathname === link.href ? "text-primary" : "text-text-light"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            
+            {/* Mobile Community Dropdown */}
+            <div className="pt-2 border-t border-gray-100">
+              <button
+                onClick={() => setMobileCommunityOpen(!mobileCommunityOpen)}
+                className="flex items-center justify-between w-full text-sm font-medium text-text-light hover:text-primary"
+              >
+                Community
+                <svg
+                  className={`w-4 h-4 transition-transform ${mobileCommunityOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {mobileCommunityOpen && (
+                <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
+                  {communityDropdownItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`text-sm transition-colors ${
+                        pathname === item.href
+                          ? "text-primary font-medium"
+                          : "text-text-light hover:text-primary"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            {/* Mobile Member Dropdown */}
+            <div className="pt-2 border-t border-gray-100">
+              <button
+                onClick={() => setMobileMemberOpen(!mobileMemberOpen)}
+                className="flex items-center justify-between w-full text-sm font-medium text-text-light hover:text-primary"
+              >
+                Member
+                <svg
+                  className={`w-4 h-4 transition-transform ${mobileMemberOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {mobileMemberOpen && (
+                <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
+                  {memberDropdownItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`text-sm transition-colors ${
+                        pathname === item.href
+                          ? "text-primary font-medium"
+                          : "text-text-light hover:text-primary"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
