@@ -36,7 +36,7 @@ export default function OurStrengthsPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-dark mb-2">Deep Community Roots</h3>
-                    <p className="text-text-light">Established in 2026, we have built deep trust and strong relationships with local communities across Bangladesh.</p>
+                    <p className="text-text-light">Established 2024, we have built deep trust and strong relationships with local communities across Bangladesh.</p>
                   </div>
                 </div>
 

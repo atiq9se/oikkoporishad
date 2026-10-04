@@ -66,7 +66,7 @@ export default function AboutPage() {
               <p>
                 Oikkoparishad is a non-political, non-profit, and non-government voluntary
                 social welfare organization dedicated to improving the lives of underserved
-                communities in Bangladesh. Founded in 2026, we have been working tirelessly
+                communities in Bangladesh. Founded 2024, we have been working tirelessly
                 to create lasting change through education, healthcare, and sustainable
                 development programs across the Sylhet division and beyond.
               </p>

@@ -92,7 +92,6 @@ export default async function NewsDetailPage({
 
       <section className="animate-fade-in-up opacity-0 py-16">
         <div className="container-custom">
-          <div className="mx-auto max-w-3xl">
             <article className="overflow-hidden rounded-2xl bg-white shadow-xl border border-primary/10">
               <div className="relative h-64 overflow-hidden sm:h-80">
                 <img
@@ -225,8 +224,7 @@ export default async function NewsDetailPage({
               </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       <section className="animate-fade-in-up opacity-0 bg-accent py-20">
         <div className="container-custom">

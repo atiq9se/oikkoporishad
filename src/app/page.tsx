@@ -166,7 +166,7 @@ export default function HomePage() {
                 <text x="200" y="300" textAnchor="middle" fill="#1a5632" fontSize="14" fontWeight="bold" fontFamily="sans-serif">UNITY ● SERVICE ● PROGRESS</text>
               </svg>
               <div className="absolute -bottom-6 -left-6 rounded-lg bg-primary px-6 py-4 shadow-xl md:block hidden">
-                <p className="text-2xl font-bold text-secondary">2026</p>
+                <p className="text-2xl font-bold text-secondary">2024</p>
                 <p className="text-xs font-medium text-white">{t("home.established")}</p>
               </div>
             </div>
