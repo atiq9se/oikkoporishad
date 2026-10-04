@@ -3,8 +3,8 @@
 import Link from "next/link";
 
 const contactInfo = [
-  { icon: "📍", label: "Our Address", value: "123 Main Street, Dhaka 1205, Bangladesh" },
-  { icon: "📞", label: "Phone", value: "+880 1700-000000" },
+  { icon: "📍", label: "Our Address", value: "House-36, Flat-C2 (3rd Floor), Garib-E-Newaz Avenue, Sector-13, Uttara, Dhaka-1230. Bangladesh." },
+  { icon: "📞", label: "Phone", value: "+88 02 224471488, +88 01805503650" },
   { icon: "✉️", label: "Email", value: "info@jalalabadassociation.org" },
   { icon: "🕐", label: "Working Hours", value: "Sun - Thu: 9:00 AM - 5:00 PM" },
 ];

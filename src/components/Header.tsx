@@ -3,40 +3,46 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLanguage, type Language } from "@/context/LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [mobileWhyBangladeshOpen, setMobileWhyBangladeshOpen] = useState(false);
+  const [mobileTradeInfoOpen, setMobileTradeInfoOpen] = useState(false);
   const [mobileMemberOpen, setMobileMemberOpen] = useState(false);
-  const [mobileCommunityOpen, setMobileCommunityOpen] = useState(false);
   const [mobileElectionOpen, setMobileElectionOpen] = useState(false);
-  const [mobileMembershipOpen, setMobileMembershipOpen] = useState(false);
-  const [mobileMediaOpen, setMobileMediaOpen] = useState(false);
-  const [mobileLangOpen, setMobileLangOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const [mobileSustainabilityOpen, setMobileSustainabilityOpen] = useState(false);
+  const { t } = useLanguage();
   const pathname = usePathname();
 
   const aboutDropdownItems = useMemo(() => [
-    { href: "/about", label: t("nav.aboutUs") },
-    { href: "/about/constitution", label: t("nav.constitution") },
-    { href: "/about/history", label: t("nav.history") },
-    { href: "/about/mission-vision", label: t("nav.missionVision") },
-    { href: "/about/office-staff", label: t("nav.officeStaff") },
+    { href: "/glas", label: t("nav.aboutUs") },
+    { href: "/glas/office-bearers", label: t("nav.officeBearers") },
+    { href: "/glas/former-presidents", label: t("nav.history") },
+    { href: "/glas/mission-vision", label: t("nav.missionVision") },
     { href: "/contact", label: t("nav.contact") },
   ], [t]);
 
-  const membershipDropdownItems = useMemo(() => [
-    { href: "/membership/details", label: t("nav.membershipDetails") },
-    { href: "/membership/become-a-member", label: t("nav.becomeMember") },
-    { href: "/membership/benefits", label: t("nav.membershipBenefits") },
+  const whyBangladeshDropdownItems = useMemo(() => [
+    { href: "/glas/garment-industry", label: t("nav.garmentIndustry") },
+    { href: "/glas/our-strengths", label: t("nav.ourStrengths") },
   ], [t]);
 
-  const communityDropdownItems = useMemo(() => [
-    { href: "/community/ec-2026-27", label: "EC-2026-27" },
-    { href: "/community/ec-2025-26", label: "EC-2025-26" },
-    { href: "/community/ec-2024-25", label: "EC-2024-25" },
-  ], []);
+  const tradeInfoDropdownItems = useMemo(() => [
+    { href: "/trade-information/export-performance", label: t("nav.exportPerformance") },
+    { href: "/trade-information/monthly-trade-session", label: t("nav.monthlyTradeSession") },
+    { href: "/trade-information/fair-calendar", label: t("nav.fairCalendar") },
+    { href: "/trade-information/weekly-trade-digest", label: t("nav.weeklyTradeDigest") },
+  ], [t]);
+
+  const sustainabilityDropdownItems = useMemo(() => [
+    { href: "/sustainability/workers-wellbeing-safety", label: t("nav.workersWellbeingSafety") },
+    { href: "/sustainability/environment", label: t("nav.environment") },
+    { href: "/sustainability/rmg-worker-health-toolkit", label: t("nav.rmgWorkerHealthToolkit") },
+    { href: "/sustainability/responsible-business-hub", label: t("nav.responsibleBusinessHub") },
+    { href: "/sustainability/esg-data-platform", label: t("nav.esgDataPlatform") },
+  ], [t]);
 
   const memberDropdownItems = useMemo(() => [
     { href: "/members/active", label: t("nav.activeMember") },
@@ -44,37 +50,30 @@ export default function Header() {
     { href: "/members/dead", label: t("nav.dead") },
     { href: "/members/suspended", label: t("nav.suspended") },
     { href: "/members/inactive", label: t("nav.inactive") },
-  ], [t]);
-
-  const mediaDropdownItems = useMemo(() => [
-    { href: "/notice", label: t("nav.notice") },
-    { href: "/news", label: t("nav.news") },
-    { href: "/programs", label: t("nav.events") },
-    { href: "/opinion", label: t("nav.opinion") },
-    { href: "/gallery", label: t("nav.gallery") },
+    { href: "/glas/office-staff", label: t("nav.officeStaff") },
+    { href: "/membership/details", label: t("nav.membershipDetails") },
+    { href: "/membership/become-a-member", label: t("nav.becomeMember") },
+    { href: "/membership/benefits", label: t("nav.membershipBenefits") },
   ], [t]);
 
   const electionDropdownItems = useMemo(() => [
     { href: "/election/commissioner", label: t("nav.electionCommissioner") },
     { href: "/election/voter-list", label: t("nav.voterList") },
+    { href: "/election/schedule", label: t("nav.electionSchedule") },
+    { href: "/election/valid-candidate-list", label: t("nav.validCandidateList") },
+    { href: "/election/preliminary-voter-list", label: t("nav.preliminaryVoterList") },
+    { href: "/election/preliminary-candidate-list", label: t("nav.preliminaryCandidateList") },
+    { href: "/election/final-candidate-list", label: t("nav.finalCandidateList") },
   ], [t]);
 
-  const navLinks = useMemo(() => [
-    { href: "/", label: t("nav.home") },
-  ], [t]);
+  const navLinks = useMemo<{ href: string; label: string }[]>(() => [], [t]);
 
-  const langOptions: { code: Language; label: string; flag: string }[] = [
-    { code: "en", label: "English", flag: "https://flagcdn.com/w40/gb.png" },
-    { code: "bn", label: "বাংলা", flag: "https://flagcdn.com/w40/bd.png" },
-    { code: "zh", label: "中文", flag: "https://flagcdn.com/w40/cn.png" },
-  ];
-
-  const isAboutActive = pathname === "/about" || pathname === "/contact" || aboutDropdownItems.some((item) => pathname === item.href);
-  const isMembershipActive = pathname === "/membership" || membershipDropdownItems.some((item) => pathname === item.href);
-  const isMediaActive = mediaDropdownItems.some((item) => pathname === item.href);
+  const isAboutActive = pathname === "/glas" || pathname === "/contact" || aboutDropdownItems.some((item) => pathname === item.href);
+  const isWhyBangladeshActive = whyBangladeshDropdownItems.some((item) => pathname === item.href);
+  const isTradeInfoActive = tradeInfoDropdownItems.some((item) => pathname === item.href);
   const isMemberActive = memberDropdownItems.some((item) => pathname === item.href);
-  const isCommunityActive = pathname === "/community" || communityDropdownItems.some((item) => pathname === item.href);
   const isElectionActive = electionDropdownItems.some((item) => pathname === item.href);
+  const isSustainabilityActive = sustainabilityDropdownItems.some((item) => pathname === item.href);
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
@@ -105,7 +104,7 @@ export default function Header() {
           {/* About Dropdown */}
           <div className="relative group">
             <Link
-              href="/about"
+              href="/glas"
               className={`flex items-center gap-1 text-base font-semibold transition-colors hover:text-primary ${
                 isAboutActive
                   ? "text-primary border-b-2 border-primary"
@@ -135,24 +134,24 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Membership Dropdown */}
+          {/* Why Bangladesh Dropdown */}
           <div className="relative group">
             <Link
-              href="/membership"
+              href="/glas/garment-industry"
               className={`flex items-center gap-1 text-base font-semibold transition-colors hover:text-primary ${
-                isMembershipActive
+                isWhyBangladeshActive
                   ? "text-primary border-b-2 border-primary"
                   : "text-text-light"
               }`}
             >
-              {t("nav.membership")}
+              {t("nav.whyBangladesh")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </Link>
 
             <div className="absolute top-full left-0 min-w-[220px] rounded-lg bg-white shadow-lg border border-gray-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 animate-slide-down">
-              {membershipDropdownItems.map((item) => (
+              {whyBangladeshDropdownItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -168,24 +167,69 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Community Dropdown */}
+          {/* News Link */}
+          <Link
+            href="/news"
+            className={`text-base font-semibold transition-colors hover:text-primary ${
+              pathname === "/news"
+                ? "text-primary border-b-2 border-primary"
+                : "text-text-light"
+            }`}
+          >
+            {t("nav.news")}
+          </Link>
+
+          {/* Trade Information Dropdown */}
           <div className="relative group">
             <Link
-              href="/community"
+              href="/trade-information/export-performance"
               className={`flex items-center gap-1 text-base font-semibold transition-colors hover:text-primary ${
-                isCommunityActive
+                isTradeInfoActive
                   ? "text-primary border-b-2 border-primary"
                   : "text-text-light"
               }`}
             >
-              {t("nav.community")}
+              {t("nav.tradeInformation")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </Link>
 
-            <div className="absolute top-full left-0 min-w-[180px] rounded-lg bg-white shadow-lg border border-gray-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 animate-slide-down">
-              {communityDropdownItems.map((item) => (
+            <div className="absolute top-full left-0 min-w-[240px] rounded-lg bg-white shadow-lg border border-gray-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 animate-slide-down">
+              {tradeInfoDropdownItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`block px-3 py-1.5 text-sm transition-colors ${
+                    pathname === item.href
+                      ? "bg-primary text-white"
+                      : "text-text-light hover:bg-gray-50 hover:text-primary"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Sustainability Dropdown */}
+          <div className="relative group">
+            <Link
+              href="/sustainability/workers-wellbeing-safety"
+              className={`flex items-center gap-1 text-base font-semibold transition-colors hover:text-primary ${
+                isSustainabilityActive
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-text-light"
+              }`}
+            >
+              {t("nav.sustainability")}
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </Link>
+
+            <div className="absolute top-full left-0 min-w-[280px] rounded-lg bg-white shadow-lg border border-gray-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 animate-slide-down">
+              {sustainabilityDropdownItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -263,73 +307,9 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
+</div>
             </div>
-          </div>
-
-          {/* Media & Event Dropdown */}
-          <div className="relative group">
-            <span
-              className={`flex items-center gap-1 text-base font-semibold transition-colors hover:text-primary cursor-default ${
-                isMediaActive
-                  ? "text-primary border-b-2 border-primary"
-                  : "text-text-light"
-              }`}
-            >
-              {t("nav.mediaEvent")}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-
-            <div className="absolute top-full left-0 min-w-[200px] rounded-lg bg-white shadow-lg border border-gray-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 animate-slide-down">
-              {mediaDropdownItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`block px-3 py-1.5 text-sm transition-colors ${
-                    pathname === item.href
-                      ? "bg-primary text-white"
-                      : "text-text-light hover:bg-gray-50 hover:text-primary"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Language Dropdown */}
-          <div className="relative group">
-            <span className="flex items-center gap-1.5 text-base font-semibold text-text-light hover:text-primary cursor-default">
-              <img
-                src={langOptions.find((l) => l.code === language)?.flag}
-                alt={language}
-                className="w-5 h-auto"
-              />
-              <span>{langOptions.find((l) => l.code === language)?.label}</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-
-            <div className="absolute top-full right-0 min-w-[160px] rounded-lg bg-white shadow-lg border border-gray-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 animate-slide-down">
-              {langOptions.map((item) => (
-                <button
-                  key={item.code}
-                  onClick={() => setLanguage(item.code)}
-                  className={`flex items-center gap-2 w-full text-left px-4 py-2 text-sm transition-colors ${
-                    language === item.code
-                      ? "bg-primary text-white"
-                      : "text-text-light hover:bg-gray-50 hover:text-primary"
-                  }`}
-                >
-                  <img src={item.flag} alt={item.code} className="w-5 h-auto" />
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </nav>
+          </nav>
 
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
@@ -373,7 +353,7 @@ export default function Header() {
             {/* Mobile About Dropdown */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex items-center justify-between">
-                <Link href="/about" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.about")}</Link>
+                <Link href="/glas" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.about")}</Link>
                 <button onClick={() => setMobileAboutOpen(!mobileAboutOpen)} className="p-1">
                   <svg className={`w-4 h-4 text-text-light transition-transform ${mobileAboutOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
@@ -387,34 +367,56 @@ export default function Header() {
               )}
             </div>
 
-            {/* Mobile Membership Dropdown */}
+            {/* Mobile Why Bangladesh Dropdown */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex items-center justify-between">
-                <Link href="/membership" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.membership")}</Link>
-                <button onClick={() => setMobileMembershipOpen(!mobileMembershipOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileMembershipOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <Link href="/glas/garment-industry" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.whyBangladesh")}</Link>
+                <button onClick={() => setMobileWhyBangladeshOpen(!mobileWhyBangladeshOpen)} className="p-1">
+                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileWhyBangladeshOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
               </div>
-              {mobileMembershipOpen && (
+              {mobileWhyBangladeshOpen && (
                 <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
-                  {membershipDropdownItems.map((item) => (
+                  {whyBangladeshDropdownItems.map((item) => (
                     <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
                   ))}
                 </div>
               )}
             </div>
 
-            {/* Mobile Community Dropdown */}
+            {/* Mobile News Link */}
+            <div className="pt-2 border-t border-gray-100">
+              <Link href="/news" onClick={() => setMobileOpen(false)} className={`text-base font-semibold ${pathname === "/news" ? "text-primary" : "text-text-light hover:text-primary"}`}>{t("nav.news")}</Link>
+            </div>
+
+            {/* Mobile Trade Information Dropdown */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex items-center justify-between">
-                <Link href="/community" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.community")}</Link>
-                <button onClick={() => setMobileCommunityOpen(!mobileCommunityOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileCommunityOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <Link href="/trade-information/export-performance" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.tradeInformation")}</Link>
+                <button onClick={() => setMobileTradeInfoOpen(!mobileTradeInfoOpen)} className="p-1">
+                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileTradeInfoOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
               </div>
-              {mobileCommunityOpen && (
+              {mobileTradeInfoOpen && (
                 <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
-                  {communityDropdownItems.map((item) => (
+                  {tradeInfoDropdownItems.map((item) => (
+                    <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Sustainability Dropdown */}
+            <div className="pt-2 border-t border-gray-100">
+              <div className="flex items-center justify-between">
+                <Link href="/sustainability/workers-wellbeing-safety" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.sustainability")}</Link>
+                <button onClick={() => setMobileSustainabilityOpen(!mobileSustainabilityOpen)} className="p-1">
+                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileSustainabilityOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                </button>
+              </div>
+              {mobileSustainabilityOpen && (
+                <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
+                  {sustainabilityDropdownItems.map((item) => (
                     <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
                   ))}
                 </div>
@@ -455,52 +457,7 @@ export default function Header() {
               )}
             </div>
 
-            {/* Mobile Media & Event Dropdown */}
-            <div className="pt-2 border-t border-gray-100">
-              <div className="flex items-center justify-between">
-                <span className="text-base font-semibold text-text-light">{t("nav.mediaEvent")}</span>
-                <button onClick={() => setMobileMediaOpen(!mobileMediaOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileMediaOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                </button>
-              </div>
-              {mobileMediaOpen && (
-                <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
-                  {mediaDropdownItems.map((item) => (
-                    <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Mobile Language Switcher */}
-            <div className="pt-2 border-t border-gray-100">
-              <div className="flex items-center justify-between">
-                <span className="flex items-center gap-2 text-base font-semibold text-text-light">
-                  <img src={langOptions.find((l) => l.code === language)?.flag} alt={language} className="w-5 h-auto" />
-                  {langOptions.find((l) => l.code === language)?.label}
-                </span>
-                <button onClick={() => setMobileLangOpen(!mobileLangOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileLangOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                </button>
-              </div>
-              {mobileLangOpen && (
-                <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
-                  {langOptions.map((item) => (
-                    <button
-                      key={item.code}
-                      onClick={() => { setLanguage(item.code); setMobileLangOpen(false); }}
-                      className={`flex items-center gap-2 text-left text-sm transition-colors ${
-                        language === item.code ? "text-primary font-medium" : "text-text-light hover:text-primary"
-                      }`}
-                    >
-                      <img src={item.flag} alt={item.code} className="w-5 h-auto" />
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </nav>
+            </nav>
         </div>
       )}
     </header>

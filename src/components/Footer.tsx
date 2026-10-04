@@ -34,7 +34,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="transition-colors hover:text-primary">
+                <Link href="/glas" className="transition-colors hover:text-primary">
                   {t("nav.aboutUs")}
                 </Link>
               </li>
@@ -96,11 +96,11 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm text-text-light">
               <li className="flex items-start gap-2">
                 <span>📍</span>
-                <span>123 Main Street, Dhaka, Bangladesh</span>
+                <span>House-36, Flat-C2 (3rd Floor), Garib-E-Newaz Avenue, Sector-13, Uttara, Dhaka-1230. Bangladesh.</span>
               </li>
               <li className="flex items-center gap-2">
                 <span>📞</span>
-                <span>+880 1700-000000</span>
+                <span>+88 02 224471488, +88 01805503650</span>
               </li>
               <li className="flex items-center gap-2">
                 <span>✉️</span>
@@ -113,7 +113,7 @@ export default function Footer() {
 
       <div className="border-t border-gray-200">
         <div className="container-custom flex flex-col items-center justify-between gap-4 py-6 text-sm text-text-light sm:flex-row">
-          <p>{t("footer.copyright").replace("2026", `${new Date().getFullYear()}`)}</p>
+          <p>{t("footer.copyright").replace("2026", "2026")}</p>
           <p>Developed by <a href="https://www.artsoftech.com/" target="_blank" rel="noopener noreferrer" className="inline-block"><img src="/artsoftech.png" alt="Arts of Tech" className="h-6 w-auto inline-block" /></a></p>
         </div>
       </div>

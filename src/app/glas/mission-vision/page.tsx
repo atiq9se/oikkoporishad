@@ -45,7 +45,7 @@ export default function MissionVisionPage() {
       >
         <div className="container-custom text-center text-white">
           <Link
-            href="/about"
+            href="/glas"
             className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-yellow-300 transition-colors hover:text-white"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import HeroSlider from "@/components/HeroSlider";
-import MemberSearch from "@/components/MemberSearch";
-import Counter from "@/components/Counter";
-import Marquee from "@/components/Marquee";
+import GallerySection from "@/components/GallerySection";
+import { news } from "@/data/news";
 import { useLanguage } from "@/context/LanguageContext";
 
 const programs = [
@@ -87,11 +86,34 @@ const notices = [
   },
 ];
 
+const stories = [
+  {
+    id: "story-1",
+    title: "Oikko Parishad Story (January-March 2026)",
+    period: "January-March 2026",
+    cover: "/story.png",
+    description: "Quarterly highlights of our community impact initiatives across education, healthcare, and sustainable development programs.",
+  },
+  {
+    id: "story-2",
+    title: "Oikko Parishad Story (April-June 2026)",
+    period: "April-June 2026",
+    cover: "/story.png",
+    description: "Empowering women through vocational training, supporting clean water access, and expanding medical camp outreach in rural areas.",
+  },
+  {
+    id: "story-3",
+    title: "Oikko Parishad Story (July-September 2026)",
+    period: "July-September 2026",
+    cover: "/story.png",
+    description: "Annual sports tournament success, scholarship program expansion, and new partnerships for community development.",
+  },
+];
+
 export default function HomePage() {
   const { t } = useLanguage();
   return (
     <>
-      <Marquee />
       <HeroSlider />
 
       {/* About Summary */}
@@ -110,7 +132,7 @@ export default function HomePage() {
                 {t("home.aboutDesc2")}
               </p>
               <Link
-                href="/about"
+                href="/glas"
                 className="inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
               >
                 {t("home.learnMoreAbout")}
@@ -144,7 +166,7 @@ export default function HomePage() {
                 <text x="200" y="300" textAnchor="middle" fill="#1a5632" fontSize="14" fontWeight="bold" fontFamily="sans-serif">UNITY ● SERVICE ● PROGRESS</text>
               </svg>
               <div className="absolute -bottom-6 -left-6 rounded-lg bg-primary px-6 py-4 shadow-xl md:block hidden">
-                <p className="text-2xl font-bold text-secondary">1948</p>
+                <p className="text-2xl font-bold text-secondary">2026</p>
                 <p className="text-xs font-medium text-white">{t("home.established")}</p>
               </div>
             </div>
@@ -152,353 +174,148 @@ export default function HomePage() {
         </div>
       </section>
 
-      <MemberSearch />
-
-      {/* Counter Section */}
-      <section className="animate-fade-in-up opacity-0 bg-white py-20">
-        <div className="container-custom">
-          <div className="grid gap-8 text-center sm:grid-cols-2 lg:grid-cols-4">
-            <Counter count={2500} label={t("home.totalMember")} />
-            <Counter count={1450} label={t("home.maleMember")} />
-            <Counter count={1050} label={t("home.femaleMember")} />
-            <Counter count={21} label="EC-2026-27" />
-          </div>
-        </div>
-      </section>
-
-      {/* Years of Service - President & Secretary */}
-      <section className="animate-fade-in-up opacity-0 bg-accent py-20">
-        <div className="container-custom relative">
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <h2 className="mb-4 text-2xl font-bold text-primary sm:text-3xl md:text-4xl">
-              {t("home.presidentSpeech")}
-            </h2>
-            <div className="mx-auto h-1 w-20 rounded bg-secondary" />
-          </div>
-          <div className="grid gap-10 md:grid-cols-2">
-            {/* President */}
-            <div className="animate-fade-in-up opacity-0 relative" style={{ animationDelay: "100ms" }}>
-              <div className="relative rounded-2xl bg-white p-8 shadow-xl border border-primary/20 -translate-y-1 transition-all duration-500">
-                <div className="absolute -top-4 -left-4 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-light text-white text-base font-bold shadow-md">
-                  ❝
-                </div>
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-6">
-                    <div className="flex h-2 w-2 rounded-full bg-primary" />
-                    <div className="flex h-2 w-2 rounded-full bg-primary-light" />
-                    <div className="flex h-2 w-2 rounded-full bg-secondary" />
-                    <span className="text-xs font-medium text-primary-light uppercase tracking-wider">{t("home.presidentMessage")}</span>
-                  </div>
-                  <p className="text-lg leading-relaxed text-text mb-8">
-                    {t("home.presidentQuote")}
-                  </p>
-                  <div className="flex items-center justify-center pt-6 border-t border-gray-100">
-                    <div className="w-32 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500" />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 flex items-center gap-5">
-                <div className="relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=180&q=80"
-                    alt="President Dr. Ahmed Rahman"
-                    className="h-24 w-24 rounded-full object-cover border-4 border-white shadow-lg"
-                  />
-                </div>
-                <div>
-                  <p className="font-bold text-dark text-lg">Dr. Ahmed Rahman</p>
-                  <p className="text-sm text-primary font-medium">{t("home.president")}</p>
-                  <p className="text-xs text-text-light mt-0.5">{t("home.servingSince")}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Secretary */}
-            <div className="animate-fade-in-up opacity-0 relative" style={{ animationDelay: "300ms" }}>
-              <div className="relative rounded-2xl bg-white p-8 shadow-xl border border-primary/20 -translate-y-1 transition-all duration-500">
-                <div className="absolute -top-4 -left-4 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-light text-white text-base font-bold shadow-md">
-                  ❝
-                </div>
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-6">
-                    <div className="flex h-2 w-2 rounded-full bg-primary" />
-                    <div className="flex h-2 w-2 rounded-full bg-primary-light" />
-                    <div className="flex h-2 w-2 rounded-full bg-secondary" />
-                    <span className="text-xs font-medium text-primary-light uppercase tracking-wider">{t("home.secretaryMessage")}</span>
-                  </div>
-                  <p className="text-lg leading-relaxed text-text mb-8">
-                    {t("home.secretaryQuote")}
-                  </p>
-                  <div className="flex items-center justify-center pt-6 border-t border-gray-100">
-                    <div className="w-32 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500" />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 flex items-center gap-5">
-                <div className="relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=180&q=80"
-                    alt="Secretary Ms. Fatima Begum"
-                    className="h-24 w-24 rounded-full object-cover border-4 border-white shadow-lg"
-                  />
-                </div>
-                <div>
-                  <p className="font-bold text-dark text-lg">Ms. Fatima Begum</p>
-                  <p className="text-sm text-primary font-medium">{t("home.generalSecretary")}</p>
-                  <p className="text-xs text-text-light mt-0.5">{t("home.servingSinceSecretary")}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Current Executive Committee 2026-27 */}
-      <section className="animate-fade-in-up opacity-0 relative bg-gradient-to-b from-gray-50 to-white py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%231a5632%22 fill-opacity=%220.02%22%3E%3Cpath d=%22M0 38.59L38.59 0%22 stroke=%22%231a5632%22 stroke-width=%220.5%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50" />
-        <div className="container-custom relative">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-primary sm:text-4xl">
-              {t("home.ecTitle")} <span className="text-secondary">2026-27</span>
-            </h2>
-            <div className="mx-auto mb-6 h-1 w-20 rounded bg-secondary" />
-            <p className="text-lg text-text">
-              {t("home.ecDesc")}
-            </p>
-          </div>
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-12 mx-auto max-w-xs">
-              {executiveCommittee.filter(m => m.role === "President").map((member) => (
-                <HomeMemberCard key={member.id} member={member} />
-              ))}
-            </div>
-
-            <div className="mb-12 grid gap-6 sm:grid-cols-2 max-w-2xl mx-auto">
-              {executiveCommittee.filter(m => m.role === "Vice President").map((member) => (
-                <HomeMemberCard key={member.id} member={member} />
-              ))}
-            </div>
-
-            <div className="mb-12 grid gap-6 sm:grid-cols-3 max-w-3xl mx-auto">
-              {executiveCommittee.filter(m => m.role === "General Secretary" || m.role === "Treasurer" || m.role === "Joint Secretary").map((member) => (
-                <HomeMemberCard key={member.id} member={member} />
-              ))}
-            </div>
-
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {executiveCommittee.filter(m => m.role === "Executive Member").map((member) => (
-                <HomeMemberCard key={member.id} member={member} />
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-14 text-center">
-            <Link
-              href="/community/ec-2026-27"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-primary border border-primary rounded-lg hover:bg-primary/10 transition-colors"
-            >
-              {t("home.viewFullCommittee")}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Upcoming Events */}
-      <section className="animate-fade-in-up opacity-0 bg-white py-20">
-        <div className="container-custom">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-primary sm:text-4xl">
-              {t("home.upcomingEvents")}
-            </h2>
-            <div className="mx-auto mb-6 h-1 w-20 rounded bg-secondary" />
-            <p className="text-lg text-text">
-              {t("home.upcomingEventsDesc")}
-            </p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              { date: "Dec 15", title: "Annual Sports Tournament 2026", desc: "Inter-club cricket, football, and badminton tournament open to all members.", color: "from-emerald-500 to-teal-600" },
-              { date: "Dec 28", title: "Monthly Cultural Evening", desc: "An evening of poetry, music, and traditional performances by club members.", color: "from-violet-500 to-purple-600" },
-              { date: "Jan 10", title: "Blood Donation Camp", desc: "Annual blood donation drive in collaboration with Sylhet Medical College.", color: "from-red-500 to-rose-600" },
-            ].map((event, index) => (
-              <div
-                key={event.title}
-                className="animate-fade-in-up opacity-0 group rounded-2xl bg-white shadow-lg border border-gray-100 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1"
-                style={{ animationDelay: `${(index % 4 + 1) * 100}ms` }}
-              >
-                <div className={`bg-gradient-to-r ${event.color} p-5 text-white`}>
-                  <p className="text-sm font-medium opacity-90">{event.date}</p>
-                  <h3 className="mt-2 text-xl font-bold">{event.title}</h3>
-                </div>
-                <div className="p-5">
-                  <p className="text-sm text-text-light leading-relaxed">{event.desc}</p>
-                  <Link
-                    href="/programs"
-                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-secondary transition-colors"
-                  >
-                    {t("home.learnMore")}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Link
-              href="/programs"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              {t("home.viewAllEvents")}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Notice Section */}
-      <section className="animate-fade-in-up opacity-0 bg-accent py-20">
-        <div className="container-custom">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-primary sm:text-4xl">
-              {t("home.notices")}
-            </h2>
-            <div className="mx-auto mb-6 h-1 w-20 rounded bg-secondary" />
-            <p className="text-lg text-text">
-              {t("home.noticesDesc")}
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {notices.map((notice, index) => (
-              <Link
-                key={notice.id}
-                href={`/notice/${notice.id}`}
-                className="animate-fade-in-up opacity-0 group relative rounded-2xl bg-white p-6 shadow-lg border border-gray-200 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/40"
-                style={{ animationDelay: `${(index % 4 + 1) * 100}ms` }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-base font-bold text-dark group-hover:text-primary transition-colors duration-300">
-                      {notice.title}
-                    </p>
-                    <div className="mt-3 flex items-center gap-3">
-                      <span className="inline-flex items-center gap-1 text-xs font-medium text-primary-light">
-                        <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        {notice.date}
-                      </span>
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
-                        {notice.category}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-              </Link>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link
-              href="/notices"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-primary border border-primary rounded-lg hover:bg-primary/10 transition-colors"
-            >
-              {t("home.viewAllNotices")}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* News Section */}
       <section className="animate-fade-in-up opacity-0 bg-white py-20">
         <div className="container-custom">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-primary sm:text-4xl">
-              {t("home.news")}
-            </h2>
-            <div className="mx-auto mb-6 h-1 w-20 rounded bg-secondary" />
-            <p className="text-lg text-text">
-              {t("home.newsDesc")}
-            </p>
+          <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="mb-4 text-3xl font-bold text-primary sm:text-4xl">
+                {t("home.news")}
+              </h2>
+              <div className="h-1 w-20 rounded bg-secondary" />
+            </div>
+            <Link
+              href="/news"
+              className="inline-flex shrink-0 items-center gap-2 self-start rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light sm:self-auto"
+            >
+              {t("home.viewAllNews")}
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                img: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80",
-                title: "Annual General Meeting 2026",
-                date: "July 15, 2026",
-                subtitle: "The Annual General Meeting was held successfully with record attendance from members across all districts."
-              },
-              {
-                img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
-                title: "New Scholarship Program Launched",
-                date: "June 28, 2026",
-                subtitle: "Oikkoparishad launches a new scholarship program for 200 underprivileged students in rural areas."
-              },
-              {
-                img: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&q=80",
-                title: "Free Medical Camp a Success",
-                date: "June 10, 2026",
-                subtitle: "Over 1,500 patients received free medical checkups and medicines at the week-long health camp."
-              }
-            ].map((news, index) => (
+            {news.map((item, index) => (
               <div
-                key={news.title}
-                className="animate-fade-in-up opacity-0 group rounded-2xl bg-white shadow-lg border border-gray-200 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/40"
+                key={item.id}
+                className="animate-fade-in-up opacity-0 group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-2xl"
                 style={{ animationDelay: `${(index % 4 + 1) * 100}ms` }}
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={news.img}
-                    alt={news.title}
+                    src={item.img}
+                    alt={item.title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <span className="absolute left-3 top-3 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-dark">
+                    {item.category}
+                  </span>
                 </div>
-                <div className="p-5">
+                <div className="flex flex-1 flex-col p-5">
                   <span className="inline-flex items-center gap-1 text-xs font-medium text-primary-light">
                     <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 012-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    {news.date}
+                    {item.date}
                   </span>
                   <h3 className="mt-2 text-base font-bold text-dark group-hover:text-primary transition-colors duration-300">
-                    {news.title}
+                    {item.title}
                   </h3>
                   <p className="mt-2 text-sm text-text-light leading-relaxed">
-                    {news.subtitle}
+                    {item.desc}
                   </p>
+                  <div className="mt-auto pt-5">
+                    <Link
+                      href={`/news/${item.id}`}
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-secondary"
+                    >
+                      {t("home.readMoreNews")}
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-10 text-center">
+        </div>
+      </section>
+
+      {/* Oikko Parishad Story Section */}
+      <section className="animate-fade-in-up opacity-0 bg-white py-20">
+        <div className="container-custom">
+          <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="mb-4 text-3xl font-bold text-primary sm:text-4xl">
+                {t("home.storyTitle")}
+              </h2>
+              <div className="h-1 w-20 rounded bg-secondary" />
+              <p className="mt-2 text-lg text-text-light">
+                {t("home.storySubtitle")}
+              </p>
+            </div>
             <Link
-              href="/news"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-primary border border-primary rounded-lg hover:bg-primary/10 transition-colors"
+              href="/stories"
+              className="inline-flex shrink-0 items-center gap-2 self-start rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light sm:self-auto"
             >
-              {t("home.readMoreNews")}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {t("home.viewAllStories")}
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
           </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {stories.map((story, index) => (
+              <Link
+                key={story.id}
+                href={`/stories/${story.id}`}
+                className="animate-fade-in-up opacity-0 group relative overflow-hidden rounded-2xl bg-white shadow-xl border border-gray-200 transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-2xl"
+                style={{ animationDelay: `${(index % 4 + 1) * 100}ms` }}
+              >
+                {/* Book Cover Style */}
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <img
+                    src={story.cover}
+                    alt={story.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  {/* Book spine effect */}
+                  <div className="absolute left-0 top-0 bottom-0 w-2 bg-primary/80" />
+                  <div className="absolute right-0 top-0 bottom-0 w-1 bg-secondary/60" />
+                </div>
+                <div className="p-6">
+                  <span className="inline-flex items-center gap-1 text-xs font-medium text-primary-light">
+                    <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {story.period}
+                  </span>
+                  <h3 className="mt-3 text-lg font-bold text-dark group-hover:text-primary transition-colors duration-300 leading-tight">
+                    {story.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-text-light leading-relaxed line-clamp-3">
+                    {story.description}
+                  </p>
+                  <div className="mt-5 pt-4 border-t border-gray-100">
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors group-hover:gap-2">
+                      Read Story
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
+
+      <GallerySection />
+
     </>
   );
 }

@@ -1,52 +1,7 @@
-const images = [
-  {
-    src: "https://images.unsplash.com/photo-1497493292307-31c376b6e479?w=600&q=80",
-    alt: "Children in classroom",
-    category: "Education",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80",
-    alt: "Community gathering",
-    category: "Community",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
-    alt: "Volunteers working",
-    category: "Volunteers",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80",
-    alt: "Team effort",
-    category: "Volunteers",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&q=80",
-    alt: "Medical camp",
-    category: "Healthcare",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600&q=80",
-    alt: "Donation drive",
-    category: "Community",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&q=80",
-    alt: "Women learning skills",
-    category: "Empowerment",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80",
-    alt: "Children playing",
-    category: "Education",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80",
-    alt: "Water well installation",
-    category: "Clean Water",
-  },
-];
+import { galleryPhotos } from "@/data/gallery";
 
 export default function GalleryPage() {
+  const images = galleryPhotos;
   return (
     <>
       <section
