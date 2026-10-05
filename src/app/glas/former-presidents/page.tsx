@@ -90,16 +90,20 @@ export default function FormerPresidentsPage() {
       <section className="py-20">
         <div className="container-custom">
           <div className="relative max-w-5xl mx-auto">
-            <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 -translate-x-1/2" />
-            <div className="space-y-16">
+            <div>
               {reversedPresidents.map((president, index) => (
                 <div
                   key={president.name}
-                  className="relative flex items-start gap-8"
+                  className="relative grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-start gap-8 py-8"
                 >
+                  <div
+                    className={`pointer-events-none absolute left-1/2 w-0.5 -translate-x-[1px] bg-primary/40 ${
+                      index === 0 ? "top-8" : "top-0"
+                    } ${index === reversedPresidents.length - 1 ? "bottom-8" : "bottom-0"}`}
+                  />
                   {index % 2 === 0 ? (
                     <>
-                      <div className="flex-1 max-w-[45%] pr-8 text-right">
+                      <div className="pr-8 text-right">
                         <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/30">
                           <div className="flex flex-col md:flex-row-reverse gap-6">
                             <div className="relative w-full md:w-32 flex-shrink-0">
@@ -117,21 +121,21 @@ export default function FormerPresidentsPage() {
                         </div>
                       </div>
 
-                      <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white shadow-lg border-4 border-white">
+                      <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-sm font-bold text-white shadow-lg border-4 border-white">
                         {president.duration.split(" - ")[0]}
                       </div>
 
-                      <div className="flex-1 max-w-[45%]" />
+                      <div />
                     </>
                   ) : (
                     <>
-                      <div className="flex-1 max-w-[45%]" />
+                      <div />
 
-                      <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white shadow-lg border-4 border-white">
+                      <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-sm font-bold text-white shadow-lg border-4 border-white">
                         {president.duration.split(" - ")[0]}
                       </div>
 
-                      <div className="flex-1 max-w-[45%] pl-8">
+                      <div className="pl-8">
                         <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-primary/30">
                           <div className="flex flex-col md:flex-row gap-6">
                             <div className="relative w-full md:w-32 flex-shrink-0">
