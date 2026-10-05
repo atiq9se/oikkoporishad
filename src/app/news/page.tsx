@@ -69,7 +69,7 @@ function NewsCard({ item, index, variant = "default" }: { item: typeof news[0]; 
           {!isFeatured && (
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           )}
-          <div className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${colors.gradient}`} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
           <div className="absolute top-3 left-3 z-10">
             <CategoryBadge category={item.category} />
