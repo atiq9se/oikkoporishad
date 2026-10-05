@@ -27,6 +27,8 @@
     "preliminaryVoterList": "Preliminary Voter List",
     "preliminaryCandidateList": "Preliminary Candidate List",
     "finalCandidateList": "Final Candidate List",
+  "voter": "Voter",
+  "candidate": "Candidate",
     "mediaEvent": "Media & Event",
     "notice": "Notice",
     "news": "News",
@@ -64,7 +66,7 @@
     "slide4Desc": "Representing garment manufacturers since 2026, advocating for policy reform, trade facilitation, and sustainable industrial growth."
   },
   "footer": {
-    "description": "Oikkoparishad is a non-political, non-profit voluntary social welfare organization dedicated to improving the lives of underserved communities in Bangladesh since 2026.",
+    "description": "Oikkoparishad is a non-political, non-profit voluntary social welfare organization dedicated to improving the lives of underserved communities in Bangladesh since 2024.",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
     "followUs": "Follow Us",
@@ -72,13 +74,13 @@
   },
   "home": {
     "aboutTitle": "Why Oikko Parishad",
-    "aboutDesc1": "Oikkoparishad is a non-profit organization focused on uplifting underprivileged communities. Since our founding in 2026, we have been working tirelessly to provide education, healthcare, and sustainable livelihood opportunities to those who need them most.",
+    "aboutDesc1": "Oikkoparishad is a non-profit organization focused on uplifting underprivileged communities. Since our founding in 2024, we have been working tirelessly to provide education, healthcare, and sustainable livelihood opportunities to those who need them most.",
     "aboutDesc2": "Our mission is to empower individuals through community-driven programs that create lasting positive change across Bangladesh.",
     "learnMoreAbout": "Learn More About Us",
     "established": "Established",
     "presidentSpeech": "President & Secretary Speech",
     "presidentMessage": "President Message",
-    "presidentQuote": "\"Oikkoparishad has been a beacon of hope and progress for our community since 2026. Through years of dedicated service, we have touched countless lives through education, healthcare, and empowerment initiatives. Our journey continues with renewed vigor and commitment to serve.\"",
+    "presidentQuote": "\"Oikkoparishad has been a beacon of hope and progress for our community since 2024. Through years of dedicated service, we have touched countless lives through education, healthcare, and empowerment initiatives. Our journey continues with renewed vigor and commitment to serve.\"",
     "servingSince": "Serving since 2010",
     "secretaryMessage": "Secretary Message",
     "secretaryQuote": "\"As Secretary, I am honored to work alongside dedicated volunteers and staff who share our vision for a better tomorrow. Together, we have built schools, provided healthcare, and empowered women across Jalalabad. Our work is far from done, and I invite you to join us.\"",
