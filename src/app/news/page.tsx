@@ -21,10 +21,10 @@ function CategoryBadge({ category }: { category: string }) {
   );
 }
 
-function MetaItem({ icon, children, className = "" }: { icon: React.ReactNode; children: React.ReactNode; className?: string }) {
+function MetaItem({ icon, children, className = "text-xs text-text-light" }: { icon: React.ReactNode; children: React.ReactNode; className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-1 text-xs text-text-light ${className}`}>
-      <span className="inline-flex h-3.5 w-3.5 items-center justify-center text-text-light/70">{icon}</span>
+    <span className={`inline-flex items-center gap-1 ${className}`}>
+      <span className="inline-flex h-3.5 w-3.5 items-center justify-center opacity-70">{icon}</span>
       {children}
     </span>
   );
@@ -58,16 +58,18 @@ function NewsCard({ item, index, variant = "default" }: { item: typeof news[0]; 
       className={`${cardBase} ${layoutClasses}`}
       style={{ animationDelay: `${(index % 10 + 1) * 70}ms` }}
     >
-      <Link href={`/news/${item.id}`} className="block relative h-full" aria-label={`Read ${item.title}`}>
-        <div className={`relative overflow-hidden ${isFeatured ? "h-80 sm:h-96 lg:h-[420px]" : isTall ? "h-72 lg:h-80" : isWide ? "h-56" : "h-48"}`}>
+      <Link href={`/news/${item.id}`} className="flex h-full flex-col" aria-label={`Read ${item.title}`}>
+        <div className={`relative overflow-hidden ${isFeatured ? "h-64 sm:h-72 lg:h-[300px]" : isTall ? "h-72 lg:h-80" : isWide ? "h-56" : "h-48"}`}>
           <img
             src={item.img}
             alt={item.title}
             className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
             loading={index < 4 ? "eager" : "lazy"}
           />
-          <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent ${isFeatured ? "from-black/60 via-black/10" : ""}`} />
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ backgroundImage: `linear-gradient(135deg, ${colors.gradient.split(" ")[1]} 0%, transparent 50%)` }} />
+          {!isFeatured && (
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          )}
+          <div className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${colors.gradient}`} />
 
           <div className="absolute top-3 left-3 z-10">
             <CategoryBadge category={item.category} />
@@ -80,53 +82,44 @@ function NewsCard({ item, index, variant = "default" }: { item: typeof news[0]; 
               </h3>
             </div>
           )}
-
-          {isFeatured && (
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-              <div className="flex flex-wrap items-center gap-2 mb-3">
-                <CategoryBadge category={item.category} />
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight drop-shadow-lg">
-                {item.title}
-              </h2>
-              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/90">
-                <MetaItem icon={<CalendarIcon />} children={item.date} />
-                <span className="hidden w-1 h-1 rounded-full bg-white/30 sm:block" />
-                <MetaItem icon={<UserIcon />} children={item.author} />
-                <span className="hidden w-1 h-1 rounded-full bg-white/30 sm:block" />
-                <MetaItem icon={<ClockIcon />} children={item.readTime} />
-              </div>
-            </div>
-          )}
         </div>
 
-        {!isFeatured && (
-          <div className="flex flex-1 flex-col p-5 sm:p-6 relative">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r" style={{ backgroundImage: colors.gradient }} />
-            <div className="flex flex-1 flex-col">
-              <Link href={`/news/${item.id}`} className="group">
-                <h3 className="text-lg sm:text-xl font-bold text-dark leading-tight group-hover:text-primary transition-colors line-clamp-2">
-                  {item.title}
-                </h3>
-              </Link>
-              <p className="mt-2.5 flex-1 text-sm leading-relaxed text-text-light line-clamp-3">{item.desc}</p>
-            </div>
-            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-text-light">
-              <MetaItem icon={<CalendarIcon />} children={item.date} />
-              <span className="hidden w-1 h-1 rounded-full bg-gray-300 sm:block" />
-              <MetaItem icon={<UserIcon />} children={item.author} />
-              <span className="hidden w-1 h-1 rounded-full bg-gray-300 sm:block" />
-              <MetaItem icon={<ClockIcon />} children={item.readTime} />
-            </div>
-            <Link
-              href={`/news/${item.id}`}
-              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-secondary group"
+        <div className={`relative flex flex-1 flex-col ${isFeatured ? "p-6 sm:p-8" : "p-5 sm:p-6"}`}>
+          <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${colors.gradient}`} />
+          <div className="flex flex-1 flex-col">
+            <h3
+              className={`text-dark leading-tight transition-colors group-hover:text-primary ${
+                isFeatured
+                  ? "text-2xl sm:text-3xl lg:text-4xl font-bold"
+                  : "text-lg sm:text-xl font-bold line-clamp-2"
+              }`}
             >
-              Read More
-              <ArrowIcon />
-            </Link>
+              {item.title}
+            </h3>
+            <p
+              className={`text-text-light leading-relaxed ${
+                isFeatured
+                  ? "mt-4 flex-1 text-base sm:text-lg line-clamp-3 sm:line-clamp-4"
+                  : "mt-2.5 flex-1 text-sm line-clamp-3"
+              }`}
+            >
+              {item.desc}
+            </p>
           </div>
-        )}
+          <div className={`mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 ${isFeatured ? "text-sm" : "text-xs"} text-text-light`}>
+            <MetaItem icon={<CalendarIcon />} className={isFeatured ? "text-sm text-text-light" : undefined}>{item.date}</MetaItem>
+            <span className="hidden w-1 h-1 rounded-full bg-gray-300 sm:block" />
+            <MetaItem icon={<UserIcon />} className={isFeatured ? "text-sm text-text-light" : undefined}>{item.author}</MetaItem>
+            <span className="hidden w-1 h-1 rounded-full bg-gray-300 sm:block" />
+            <MetaItem icon={<ClockIcon />} className={isFeatured ? "text-sm text-text-light" : undefined}>{item.readTime}</MetaItem>
+          </div>
+          <span
+            className={`mt-4 inline-flex items-center gap-1.5 font-semibold text-primary transition-colors ${isFeatured ? "text-base" : "text-sm"}`}
+          >
+            Read More
+            <ArrowIcon />
+          </span>
+        </div>
       </Link>
     </article>
   );
