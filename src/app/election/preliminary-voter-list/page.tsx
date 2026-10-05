@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 const voters = [
-  { name: "Mr. Abdul Karim", status: "Verified", constituency: "Sylhet-1", registrationDate: "January 15, 2026" },
-  { name: "Ms. Shahana Begum", status: "Verified", constituency: "Sylhet-2", registrationDate: "February 20, 2026" },
-  { name: "Mr. Rahim Uddin", status: "Pending Review", constituency: "Sylhet-3", registrationDate: "March 10, 2026" },
-  { name: "Ms. Ayesha Khan", status: "Verified", constituency: "Sylhet-4", registrationDate: "April 5, 2026" },
-  { name: "Mr. Karimullah", status: "Verified", constituency: "Sylhet-5", registrationDate: "April 20, 2026" },
-  { name: "Ms. Rehana Akter", status: "Pending Review", constituency: "Sylhet-6", registrationDate: "May 10, 2026" },
+  { name: "Mr. Abdul Karim", status: "Verified", constituency: "Sylhet-1", registrationDate: "January 15, 2026", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" },
+  { name: "Ms. Shahana Begum", status: "Verified", constituency: "Sylhet-2", registrationDate: "February 20, 2026", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" },
+  { name: "Mr. Rahim Uddin", status: "Pending Review", constituency: "Sylhet-3", registrationDate: "March 10, 2026", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" },
+  { name: "Ms. Ayesha Khan", status: "Verified", constituency: "Sylhet-4", registrationDate: "April 5, 2026", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" },
+  { name: "Mr. Karimullah", status: "Verified", constituency: "Sylhet-5", registrationDate: "April 20, 2026", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" },
+  { name: "Ms. Rehana Akter", status: "Pending Review", constituency: "Sylhet-6", registrationDate: "May 10, 2026", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" },
 ];
 
 export default function ElectionPreliminaryVoterListPage() {
@@ -45,7 +45,7 @@ export default function ElectionPreliminaryVoterListPage() {
               <div key={voter.name} className="animate-fade-in-up opacity-0 rounded-2xl bg-white p-6 shadow-xl border border-primary/20 text-center" style={{ animationDelay: `${(i + 1) * 100}ms` }}>
                 <div className="relative mx-auto h-36 w-36">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/15 to-secondary/15" />
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt={voter.name} className="relative h-36 w-36 rounded-full object-cover border-4 border-white shadow-xl ring-2 ring-primary-400" />
+                  <img src={voter.image} alt={voter.name} className="relative h-36 w-36 rounded-full object-cover border-4 border-white shadow-xl ring-2 ring-primary-400" />
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-dark">{voter.name}</h3>
                 <p className="mt-1 text-sm font-semibold text-primary">{voter.constituency}</p>

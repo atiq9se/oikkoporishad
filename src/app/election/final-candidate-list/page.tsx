@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const candidates = [
-  { name: "Mr. Hasan Ali", role: "Final Candidate", constituency: "Sylhet-1", experience: "3 years governance experience, elected unopposed" },
-  { name: "Ms. Rehana Akter", role: "Final Candidate", constituency: "Sylhet-2", experience: "2 years grassroots organizing, community trust" },
-  { name: "Mr. Karimullah", role: "Final Candidate", constituency: "Sylhet-3", experience: "4 years policy analysis, budget oversight" },
-  { name: "Ms. Ayesha Khan", role: "Final Candidate", constituency: "Sylhet-4", experience: "5 years municipal leadership, infrastructure projects" },
+  { name: "Mr. Hasan Ali", role: "Final Candidate", constituency: "Sylhet-1", experience: "3 years governance experience, elected unopposed", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80" },
+  { name: "Ms. Rehana Akter", role: "Final Candidate", constituency: "Sylhet-2", experience: "2 years grassroots organizing, community trust", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" },
+  { name: "Mr. Karimullah", role: "Final Candidate", constituency: "Sylhet-3", experience: "4 years policy analysis, budget oversight", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" },
+  { name: "Ms. Ayesha Khan", role: "Final Candidate", constituency: "Sylhet-4", experience: "5 years municipal leadership, infrastructure projects", image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80" },
 ];
 
 export default function ElectionFinalCandidateListPage() {
@@ -39,7 +39,7 @@ export default function ElectionFinalCandidateListPage() {
               <div key={candidate.name} className="animate-fade-in-up opacity-0 rounded-2xl bg-white p-6 shadow-xl border border-primary/20 text-center" style={{ animationDelay: `${(i + 1) * 100}ms` }}>
                 <div className="relative mx-auto h-36 w-36">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/15 to-secondary/15" />
-                  <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80" alt={candidate.name} className="relative h-36 w-36 rounded-full object-cover border-4 border-white shadow-xl ring-2 ring-primary-400" />
+                  <img src={candidate.image} alt={candidate.name} className="relative h-36 w-36 rounded-full object-cover border-4 border-white shadow-xl ring-2 ring-primary-400" />
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-dark">{candidate.name}</h3>
                 <p className="mt-1 text-sm font-semibold text-primary">{candidate.experience}</p>

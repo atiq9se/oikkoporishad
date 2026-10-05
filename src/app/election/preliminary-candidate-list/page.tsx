@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const candidates = [
-  { name: "Mr. Hasan Ali", role: "Preliminary Candidate", constituency: "Sylhet-1", experience: "3 years governance experience" },
-  { name: "Ms. Rehana Akter", role: "Preliminary Candidate", constituency: "Sylhet-2", experience: "2 years grassroots organizing" },
-  { name: "Mr. Karimullah", role: "Preliminary Candidate", constituency: "Sylhet-3", experience: "4 years policy analysis" },
-  { name: "Ms. Ayesha Khan", role: "Preliminary Candidate", constituency: "Sylhet-4", experience: "5 years community development" },
+  { name: "Mr. Hasan Ali", role: "Preliminary Candidate", constituency: "Sylhet-1", experience: "3 years governance experience", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80" },
+  { name: "Ms. Rehana Akter", role: "Preliminary Candidate", constituency: "Sylhet-2", experience: "2 years grassroots organizing", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" },
+  { name: "Mr. Karimullah", role: "Preliminary Candidate", constituency: "Sylhet-3", experience: "4 years policy analysis", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" },
+  { name: "Ms. Ayesha Khan", role: "Preliminary Candidate", constituency: "Sylhet-4", experience: "5 years community development", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" },
 ];
 
 export default function ElectionPreliminaryCandidateListPage() {
@@ -39,7 +39,7 @@ export default function ElectionPreliminaryCandidateListPage() {
               <div key={candidate.name} className="animate-fade-in-up opacity-0 rounded-2xl bg-white p-6 shadow-xl border border-primary/20 text-center" style={{ animationDelay: `${(i + 1) * 100}ms` }}>
                 <div className="relative mx-auto h-36 w-36">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/15 to-secondary/15" />
-                  <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80" alt={candidate.name} className="relative h-36 w-36 rounded-full object-cover border-4 border-white shadow-xl ring-2 ring-primary-400" />
+                  <img src={candidate.image} alt={candidate.name} className="relative h-36 w-36 rounded-full object-cover border-4 border-white shadow-xl ring-2 ring-primary-400" />
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-dark">{candidate.name}</h3>
                 <p className="mt-1 text-sm font-semibold text-primary">{candidate.experience}</p>
