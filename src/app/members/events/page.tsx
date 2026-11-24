@@ -164,11 +164,6 @@ export default function EventsPage() {
 
       <section className="animate-fade-in-up opacity-0 bg-accent py-16">
         <div className="container-custom">
-          <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Event Schedule</h2>
-            <div className="mx-auto mt-3 h-1 w-20 rounded bg-secondary" />
-          </div>
-
           <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[860px] border-collapse text-left text-sm">
