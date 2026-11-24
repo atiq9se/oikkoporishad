@@ -22,18 +22,11 @@ export default function ElectionFinalCandidateListPage() {
           </svg>
           Back to Home
         </Link>
-        <h1 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">Final Candidates</h1>
-        <p className="mx-auto max-w-2xl text-lg text-gray-200">The final list of approved candidates for the election</p>
+        <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl">Final Candidates</h1>
       </div>
 
       <section className="animate-fade-in-up opacity-0 bg-white py-20">
         <div className="container-custom">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-primary sm:text-4xl">Final Certified Candidates</h2>
-            <div className="mx-auto mb-6 h-1 w-20 rounded bg-secondary" />
-            <p className="text-lg text-text-light">The final list of approved candidates who have completed all verification steps</p>
-          </div>
-
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {candidates.map((candidate, i) => (
               <div key={candidate.name} className="animate-fade-in-up opacity-0 rounded-2xl bg-white p-6 shadow-xl border border-primary/20 text-center" style={{ animationDelay: `${(i + 1) * 100}ms` }}>

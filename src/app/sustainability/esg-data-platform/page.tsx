@@ -1,4 +1,12 @@
+"use client";
+
+import { useEffect } from "react";
+
 export default function EsgDataPlatformPage() {
+  useEffect(() => {
+    window.location.href = "https://esg.bgmea.com.bd/";
+  }, []);
+
   return (
     <>
       <section
@@ -11,16 +19,22 @@ export default function EsgDataPlatformPage() {
         <div className="container-custom text-center text-white">
           <h1 className="mb-4 text-4xl font-bold sm:text-5xl">ESG Data Platform</h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-200">
-            Digital platform for ESG data collection, benchmarking, and transparent reporting
+            Redirecting to <a href="https://esg.bgmea.com.bd/" className="underline hover:text-white">esg.bgmea.com.bd</a>...
           </p>
         </div>
       </section>
 
       <section className="animate-fade-in-up opacity-0 py-20">
-        <div className="container-custom">
-          <div className="mx-auto max-w-6xl">
-            <div className="prose prose-gray dark:prose-invert max-w-none"></div>
-          </div>
+        <div className="container-custom text-center">
+          <p className="mb-6 text-gray-600">If you are not redirected automatically, please click below:</p>
+          <a
+            href="https://esg.bgmea.com.bd/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-white transition-colors hover:bg-primary-dark"
+          >
+            Visit ESG Data Platform
+          </a>
         </div>
       </section>
     </>

@@ -37,16 +37,17 @@ export default function Header() {
   const sustainabilityDropdownItems = useMemo(() => [
     { href: "/sustainability/workers-wellbeing-safety", label: t("nav.workersWellbeingSafety") },
     { href: "/sustainability/environment", label: t("nav.environment") },
-    { href: "/sustainability/rmg-worker-health-toolkit", label: t("nav.rmgWorkerHealthToolkit") },
-    { href: "/sustainability/responsible-business-hub", label: t("nav.responsibleBusinessHub") },
-    { href: "/sustainability/esg-data-platform", label: t("nav.esgDataPlatform") },
+    { href: "https://rmghealthtoolkit.com/", label: t("nav.rmgWorkerHealthToolkit") },
+    { href: "https://rbh.bgmea.com.bd/", label: t("nav.responsibleBusinessHub") },
+    { href: "https://esg.bgmea.com.bd/", label: t("nav.esgDataPlatform") },
   ], [t]);
 
   const memberDropdownItems = useMemo(() => [
-    { href: "/members/active", label: t("nav.activeMember") },
+    { href: "/members/general", label: t("nav.activeMember") },
     { href: "/members/defaulter", label: t("nav.defaulter") },
     { href: "/membership/details", label: t("nav.membershipDetails") },
     { href: "/membership/become-a-member", label: t("nav.becomeMember") },
+    { href: "/members/events", label: t("nav.events") },
   ], [t]);
 
   const electionDropdownItems = useMemo(() => [
@@ -225,6 +226,8 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className={`block px-3 py-1.5 text-sm transition-colors ${
                     pathname === item.href
                       ? "bg-primary text-white"
@@ -409,7 +412,16 @@ export default function Header() {
               {mobileSustainabilityOpen && (
                 <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
                   {sustainabilityDropdownItems.map((item) => (
-                    <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      onClick={() => setMobileOpen(false)}
+                      className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}
+                    >
+                      {item.label}
+                    </Link>
                   ))}
                 </div>
               )}

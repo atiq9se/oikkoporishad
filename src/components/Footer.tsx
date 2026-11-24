@@ -62,7 +62,7 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3 text-sm text-text-light">
               <li>
-                <Link href="/members/active" className="transition-colors hover:text-primary">
+                <Link href="/members/general" className="transition-colors hover:text-primary">
                   {t("nav.activeMember")}
                 </Link>
               </li>

@@ -36,8 +36,7 @@ export default function VoterListPage() {
             </svg>
             Back to Home
           </Link>
-          <h1 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">Voter List</h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-200">Registered voters for the upcoming election</p>
+          <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl">Voter List</h1>
         </div>
       </section>
 

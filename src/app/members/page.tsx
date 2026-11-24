@@ -6,7 +6,7 @@ const memberCategories = [
     count: 12,
     desc: "Currently active members participating in association activities",
     icon: "✓",
-    href: "/members/active",
+    href: "/members/general",
     color: "bg-green-500",
     badge: "12",
   },

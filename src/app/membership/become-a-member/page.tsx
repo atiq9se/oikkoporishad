@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+const membershipForm = {
+  fileName: "Oikko_Parishad_Associate_Membership.docx",
+  href: "/Oikko_Parishad_Associate_Membership.docx",
+  size: "214 KB",
+};
+
 export default function BecomeAMemberPage() {
   return (
     <>
@@ -13,72 +19,57 @@ export default function BecomeAMemberPage() {
             </svg>
             Back to Home
           </Link>
-          <h1 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">Become a Member</h1>
+          <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl">Become a Member</h1>
         </div>
       </section>
 
       <section className="animate-fade-in-up opacity-0 bg-white py-20">
         <div className="container-custom">
-          <div className="mx-auto max-w-4xl">
-            <div className="rounded-2xl bg-white p-8 shadow-xl border border-primary/10 sm:p-12">
-              <h2 className="mb-8 text-2xl font-bold text-primary">Membership Application Form</h2>
-              <p className="mb-8 text-text-light">Fill out the form below to apply for membership. Fields marked with * are required.</p>
-              <form className="space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className="mb-1.5 block text-sm font-semibold text-dark">Full Name *</label>
-                    <input type="text" className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter your full name" />
-                  </div>
-                  <div>
-                    <label className="mb-1.5 block text-sm font-semibold text-dark">Father's Name</label>
-                    <input type="text" className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter father's name" />
-                  </div>
-                </div>
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className="mb-1.5 block text-sm font-semibold text-dark">Date of Birth *</label>
-                    <input type="date" className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary" />
-                  </div>
-                  <div>
-                    <label className="mb-1.5 block text-sm font-semibold text-dark">National ID / Passport *</label>
-                    <input type="text" className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter NID or passport number" />
-                  </div>
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl font-bold text-dark sm:text-4xl">Associate Membership Form</h2>
+              <p className="mt-3 text-text-light">
+                Fill out the form below and return it to the Oikkoparishad office along with the required documents.
+              </p>
+            </div>
+
+            <a
+              href={membershipForm.href}
+              download={membershipForm.fileName}
+              className="group flex flex-col gap-5 rounded-2xl border border-primary/10 bg-white p-6 shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                  <svg className="h-7 w-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-dark">Present Address *</label>
-                  <textarea rows={3} className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter your present address" />
+                  <p className="font-semibold text-dark transition-colors group-hover:text-primary">
+                    {membershipForm.fileName}
+                  </p>
+                  <p className="mt-1 text-xs text-text-light">Word document &middot; {membershipForm.size}</p>
                 </div>
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className="mb-1.5 block text-sm font-semibold text-dark">Mobile Number *</label>
-                    <input type="tel" className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter mobile number" />
-                  </div>
-                  <div>
-                    <label className="mb-1.5 block text-sm font-semibold text-dark">Email</label>
-                    <input type="email" className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter email address" />
-                  </div>
-                </div>
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-dark">Membership Type *</label>
-                  <select className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary">
-                    <option value="">Select membership type</option>
-                    <option value="general">General Member (BDT 500/year)</option>
-                    <option value="life">Life Member (BDT 10,000 - one time)</option>
-                    <option value="patron">Patron Member (BDT 50,000+)</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-dark">Why do you want to join? *</label>
-                  <textarea rows={3} className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Tell us why you want to become a member" />
-                </div>
-                <div className="flex items-center gap-3">
-                  <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" />
-                  <label className="text-sm text-text-light">I agree to the terms and conditions of Oikkoparishad membership</label>
-                </div>
-                <button type="submit" className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary-dark sm:w-auto">
-                  Submit Application
-                </button>
-              </form>
+              </div>
+
+              <span className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-primary-light">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download
+              </span>
+            </a>
+
+            <div className="mt-10 text-center">
+              <Link
+                href="/membership"
+                className="inline-flex items-center gap-2 rounded-lg border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+              >
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Membership
+              </Link>
             </div>
           </div>
         </div>

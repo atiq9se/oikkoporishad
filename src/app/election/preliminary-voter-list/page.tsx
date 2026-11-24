@@ -28,18 +28,10 @@ export default function ElectionPreliminaryVoterListPage() {
           Back to Home
         </Link>
         <h1 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">Preliminary Voter List</h1>
-        <p className="mx-auto max-w-2xl text-lg text-gray-200">Draft list of eligible voters for the upcoming election, subject to revision</p>
       </div>
 
       <section className="animate-fade-in-up opacity-0 bg-white py-20">
         <div className="container-custom">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-primary sm:text-4xl">Verified Voters</h2>
-            <p className="text-lg text-text-light">Out of total registered voters, currently verified</p>
-            <div className="mt-6 text-2xl font-bold text-primary">{verified.length}</div>
-            <p className="text-sm text-text-light">of {voters.length} total registrations</p>
-          </div>
-
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {verified.map((voter, i) => (
               <div key={voter.name} className="animate-fade-in-up opacity-0 rounded-2xl bg-white p-6 shadow-xl border border-primary/20 text-center" style={{ animationDelay: `${(i + 1) * 100}ms` }}>
