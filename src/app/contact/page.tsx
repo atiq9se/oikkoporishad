@@ -30,66 +30,16 @@ export default function ContactPage() {
       <section className="animate-fade-in-up opacity-0 py-20">
         <div className="container-custom">
           <div className="grid gap-12 lg:grid-cols-2">
-            {/* Contact Form */}
-            <div>
-              <h2 className="mb-2 text-2xl font-bold text-primary">Send Us a Message</h2>
-              <p className="mb-8 text-text-light">
-                Have a question or want to get involved? Fill out the form below.
-              </p>
-              <form className="space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-dark">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-dark">
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="subject" className="mb-2 block text-sm font-medium text-dark">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    placeholder="How can we help?"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="mb-2 block text-sm font-medium text-dark">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={6}
-                    className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    placeholder="Write your message here..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-primary-light"
-                >
-                  Send Message
-                </button>
-              </form>
+            {/* Office Location Map */}
+            <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-lg">
+              <iframe
+                title="Oikkoparishad Office Location"
+                src="https://www.google.com/maps?q=House-36%2C%20Garib-E-Newaz%20Avenue%2C%20Sector-13%2C%20Uttara%2C%20Dhaka-1230%2C%20Bangladesh&z=15&output=embed"
+                className="h-full min-h-[400px] w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
 
             {/* Contact Info */}

@@ -7,12 +7,11 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
-  const [mobileWhyBangladeshOpen, setMobileWhyBangladeshOpen] = useState(false);
-  const [mobileTradeInfoOpen, setMobileTradeInfoOpen] = useState(false);
-  const [mobileMemberOpen, setMobileMemberOpen] = useState(false);
-  const [mobileElectionOpen, setMobileElectionOpen] = useState(false);
-  const [mobileSustainabilityOpen, setMobileSustainabilityOpen] = useState(false);
+  // Only one mobile dropdown can be expanded at a time.
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
+  const toggleMobileSection = (section: string) => {
+    setOpenMobileSection((current) => (current === section ? null : section));
+  };
   const { t } = useLanguage();
   const pathname = usePathname();
 
@@ -308,7 +307,11 @@ export default function Header() {
 
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => {
+            setMobileOpen(!mobileOpen);
+            setOpenMobileSection(null);
+          }}
+          aria-expanded={mobileOpen}
           aria-label="Toggle navigation menu"
         >
           <span
@@ -348,12 +351,12 @@ export default function Header() {
             {/* Mobile About Dropdown */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex items-center justify-between">
-                <Link href="/glas" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.about")}</Link>
-                <button onClick={() => setMobileAboutOpen(!mobileAboutOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileAboutOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <Link href="/glas" onClick={() => setMobileOpen(false)} className={`text-base font-semibold ${openMobileSection === "about" ? "text-primary" : "text-text-light hover:text-primary"}`}>{t("nav.about")}</Link>
+                <button onClick={() => toggleMobileSection("about")} aria-expanded={openMobileSection === "about"} aria-label={t("nav.about")} className="p-1">
+                  <svg className={`w-4 h-4 transition-transform ${openMobileSection === "about" ? "rotate-180 text-primary" : "text-text-light"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
               </div>
-              {mobileAboutOpen && (
+              {openMobileSection === "about" && (
                 <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
                   {aboutDropdownItems.map((item) => (
                     <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
@@ -365,12 +368,12 @@ export default function Header() {
             {/* Mobile Why Bangladesh Dropdown */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex items-center justify-between">
-                <Link href="/glas/garment-industry" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.whyBangladesh")}</Link>
-                <button onClick={() => setMobileWhyBangladeshOpen(!mobileWhyBangladeshOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileWhyBangladeshOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <Link href="/glas/garment-industry" onClick={() => setMobileOpen(false)} className={`text-base font-semibold ${openMobileSection === "whyBangladesh" ? "text-primary" : "text-text-light hover:text-primary"}`}>{t("nav.whyBangladesh")}</Link>
+                <button onClick={() => toggleMobileSection("whyBangladesh")} aria-expanded={openMobileSection === "whyBangladesh"} className="p-1">
+                  <svg className={`w-4 h-4 transition-transform ${openMobileSection === "whyBangladesh" ? "rotate-180 text-primary" : "text-text-light"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
               </div>
-              {mobileWhyBangladeshOpen && (
+              {openMobileSection === "whyBangladesh" && (
                 <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
                   {whyBangladeshDropdownItems.map((item) => (
                     <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
@@ -387,12 +390,12 @@ export default function Header() {
             {/* Mobile Trade Information Dropdown */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex items-center justify-between">
-                <Link href="/trade-information/export-performance" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.tradeInformation")}</Link>
-                <button onClick={() => setMobileTradeInfoOpen(!mobileTradeInfoOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileTradeInfoOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <Link href="/trade-information/export-performance" onClick={() => setMobileOpen(false)} className={`text-base font-semibold ${openMobileSection === "tradeInfo" ? "text-primary" : "text-text-light hover:text-primary"}`}>{t("nav.tradeInformation")}</Link>
+                <button onClick={() => toggleMobileSection("tradeInfo")} aria-expanded={openMobileSection === "tradeInfo"} className="p-1">
+                  <svg className={`w-4 h-4 transition-transform ${openMobileSection === "tradeInfo" ? "rotate-180 text-primary" : "text-text-light"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
               </div>
-              {mobileTradeInfoOpen && (
+              {openMobileSection === "tradeInfo" && (
                 <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
                   {tradeInfoDropdownItems.map((item) => (
                     <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
@@ -404,12 +407,12 @@ export default function Header() {
             {/* Mobile Sustainability Dropdown */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex items-center justify-between">
-                <Link href="/sustainability/workers-wellbeing-safety" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.sustainability")}</Link>
-                <button onClick={() => setMobileSustainabilityOpen(!mobileSustainabilityOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileSustainabilityOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <Link href="/sustainability/workers-wellbeing-safety" onClick={() => setMobileOpen(false)} className={`text-base font-semibold ${openMobileSection === "sustainability" ? "text-primary" : "text-text-light hover:text-primary"}`}>{t("nav.sustainability")}</Link>
+                <button onClick={() => toggleMobileSection("sustainability")} aria-expanded={openMobileSection === "sustainability"} className="p-1">
+                  <svg className={`w-4 h-4 transition-transform ${openMobileSection === "sustainability" ? "rotate-180 text-primary" : "text-text-light"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
               </div>
-              {mobileSustainabilityOpen && (
+              {openMobileSection === "sustainability" && (
                 <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
                   {sustainabilityDropdownItems.map((item) => (
                     <Link
@@ -430,12 +433,12 @@ export default function Header() {
             {/* Mobile Member Dropdown */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex items-center justify-between">
-                <Link href="/members" onClick={() => setMobileOpen(false)} className="text-base font-semibold text-text-light hover:text-primary">{t("nav.member")}</Link>
-                <button onClick={() => setMobileMemberOpen(!mobileMemberOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileMemberOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <Link href="/members" onClick={() => setMobileOpen(false)} className={`text-base font-semibold ${openMobileSection === "member" ? "text-primary" : "text-text-light hover:text-primary"}`}>{t("nav.member")}</Link>
+                <button onClick={() => toggleMobileSection("member")} aria-expanded={openMobileSection === "member"} className="p-1">
+                  <svg className={`w-4 h-4 transition-transform ${openMobileSection === "member" ? "rotate-180 text-primary" : "text-text-light"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
               </div>
-              {mobileMemberOpen && (
+              {openMobileSection === "member" && (
                 <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
                   {memberDropdownItems.map((item) => (
                     <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
@@ -447,12 +450,12 @@ export default function Header() {
             {/* Mobile Election Dropdown */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex items-center justify-between">
-                <span className="text-base font-semibold text-text-light">{t("nav.election")}</span>
-                <button onClick={() => setMobileElectionOpen(!mobileElectionOpen)} className="p-1">
-                  <svg className={`w-4 h-4 text-text-light transition-transform ${mobileElectionOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <span className={`text-base font-semibold ${openMobileSection === "election" ? "text-primary" : "text-text-light"}`}>{t("nav.election")}</span>
+                <button onClick={() => toggleMobileSection("election")} aria-expanded={openMobileSection === "election"} className="p-1">
+                  <svg className={`w-4 h-4 transition-transform ${openMobileSection === "election" ? "rotate-180 text-primary" : "text-text-light"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
               </div>
-              {mobileElectionOpen && (
+              {openMobileSection === "election" && (
                 <div className="mt-2 ml-4 flex flex-col gap-1 animate-slide-down">
                   {electionDropdownItems.map((item) => (
                     <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={`text-sm transition-colors ${pathname === item.href ? "text-primary font-medium" : "text-text-light hover:text-primary"}`}>{item.label}</Link>
