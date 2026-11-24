@@ -33,12 +33,6 @@ function MetaItem({ icon, children, className = "text-xs text-text-light" }: { i
 const CalendarIcon = () => (
   <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
 );
-const UserIcon = () => (
-  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-);
-const ClockIcon = () => (
-  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-);
 const ArrowIcon = () => (
   <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
 );
@@ -87,6 +81,9 @@ function NewsCard({ item, index, variant = "default" }: { item: typeof news[0]; 
         <div className={`relative flex flex-1 flex-col ${isFeatured ? "p-6 sm:p-8" : "p-5 sm:p-6"}`}>
           <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${colors.gradient}`} />
           <div className="flex flex-1 flex-col">
+            <div className={`${isFeatured ? "mb-3 text-sm" : "mb-2 text-xs"} flex flex-wrap items-center gap-x-4 gap-y-2 text-text-light`}>
+              <MetaItem icon={<CalendarIcon />} className={isFeatured ? "text-sm text-text-light" : undefined}>{item.date}</MetaItem>
+            </div>
             <h3
               className={`text-dark leading-tight transition-colors group-hover:text-primary ${
                 isFeatured
@@ -106,13 +103,6 @@ function NewsCard({ item, index, variant = "default" }: { item: typeof news[0]; 
               {item.desc}
             </p>
           </div>
-          <div className={`mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 ${isFeatured ? "text-sm" : "text-xs"} text-text-light`}>
-            <MetaItem icon={<CalendarIcon />} className={isFeatured ? "text-sm text-text-light" : undefined}>{item.date}</MetaItem>
-            <span className="hidden w-1 h-1 rounded-full bg-gray-300 sm:block" />
-            <MetaItem icon={<UserIcon />} className={isFeatured ? "text-sm text-text-light" : undefined}>{item.author}</MetaItem>
-            <span className="hidden w-1 h-1 rounded-full bg-gray-300 sm:block" />
-            <MetaItem icon={<ClockIcon />} className={isFeatured ? "text-sm text-text-light" : undefined}>{item.readTime}</MetaItem>
-          </div>
           <span
             className={`mt-4 inline-flex items-center gap-1.5 font-semibold text-primary transition-colors ${isFeatured ? "text-base" : "text-sm"}`}
           >
@@ -125,25 +115,8 @@ function NewsCard({ item, index, variant = "default" }: { item: typeof news[0]; 
   );
 }
 
-function SectionHeader({ title, subtitle, action }: { title: string; subtitle?: string; action?: React.ReactNode }) {
-  return (
-    <div className="mx-auto mb-16 max-w-3xl text-center">
-      <h2 className="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-dark tracking-tight">
-        {title}
-      </h2>
-      {subtitle && <p className="mx-auto max-w-lg text-lg text-text-light">{subtitle}</p>}
-      <div className="mt-6 flex items-center justify-center gap-4">
-        <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-        <div className="h-px w-20 bg-gradient-to-r from-primary via-primary to-transparent" />
-      </div>
-      {action && <div className="mt-6">{action}</div>}
-    </div>
-  );
-}
-
 export default function NewsPage() {
-  const [first, second, third, fourth, fifth, sixth] = news;
+  const [first, second, third, fourth, fifth, sixth, seventh] = news;
 
   return (
     <>
@@ -154,7 +127,6 @@ export default function NewsPage() {
             "linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.65) 100%), url('/breadcrumb_bg.png')",
         }}
       >
-        <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(ellipse at center, #000000 0%, transparent 70%)" }} />
         <div className="relative container-custom text-center text-white z-10 px-4">
           <nav className="mb-8 inline-flex items-center gap-2 text-sm font-medium animate-fade-in-up">
             <Link href="/" className="text-yellow-300 hover:text-white transition-colors">Home</Link>
@@ -164,32 +136,13 @@ export default function NewsPage() {
             <span className="text-gray-300">News & Updates</span>
           </nav>
           <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-            Latest <span className="relative">News</span>
+            All <span className="relative">News</span>
           </h1>
-          <p className="mx-auto max-w-3xl text-lg sm:text-xl text-gray-200/90 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-            Discover our latest initiatives, community impact stories, and organizational milestones.
-          </p>
-          <div className="mt-10 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
-            <div className="inline-flex items-center gap-4 text-sm font-medium text-gray-200/80">
-              <div className="flex items-center gap-1.5">
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-                <span>Live Updates</span>
-              </div>
-              <span className="h-5 w-px bg-white/20" />
-              <span>{news.length} Articles This Year</span>
-            </div>
-          </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      <section className="relative py-20 sm:py-28 -mt-16 z-10">
+      <section className="relative py-20 sm:py-28 z-10">
         <div className="container-custom">
-          <SectionHeader
-            title="Featured Stories"
-            subtitle="Our most impactful recent updates and community highlights"
-          />
-
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             <NewsCard item={first} index={0} variant="featured" />
             <NewsCard item={second} index={1} variant="tall" />
@@ -197,6 +150,7 @@ export default function NewsPage() {
             <NewsCard item={fourth} index={3} variant="default" />
             <NewsCard item={fifth} index={4} variant="default" />
             <NewsCard item={sixth} index={5} variant="default" />
+            <NewsCard item={seventh} index={6} variant="default" />
           </div>
 
           <div className="mt-16 text-center">

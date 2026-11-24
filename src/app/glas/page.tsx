@@ -1,39 +1,5 @@
 import Link from "next/link";
 
-const quickLinks = [
-  {
-    title: "Office Bearers",
-    href: "/glas/office-bearers",
-    desc: "Our office bearers and leadership",
-    icon: "👤",
-  },
-  {
-    title: "Former Presidents",
-    href: "/glas/former-presidents",
-    desc: "Former Presidents of Oikkoparishad",
-    icon: "👑",
-  },
-  {
-    title: "Mission & Vision",
-    href: "/glas/mission-vision",
-    desc: "Our purpose and aspirations",
-    icon: "🎯",
-  },
-  {
-    title: "Office Staff",
-    href: "/glas/office-staff",
-    desc: "Meet our dedicated team",
-    icon: "👥",
-  },
-];
-
-const values = [
-  { title: "Integrity", desc: "We uphold the highest ethical standards in all our actions." },
-  { title: "Compassion", desc: "We serve with empathy and respect for every individual." },
-  { title: "Sustainability", desc: "We create solutions that last for generations." },
-  { title: "Transparency", desc: "We are accountable to our donors and communities." },
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -48,107 +14,50 @@ export default function AboutPage() {
           <nav className="mb-6 inline-flex items-center gap-2 text-sm font-medium">
             <Link href="/" className="text-yellow-300 hover:text-white transition-colors">Home</Link>
             <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            <span className="text-gray-300">OIKKO PARISHAD at a glance</span>
+            <span className="text-gray-300">OIKKO PARISHAD At a Glance</span>
           </nav>
-          <h1 className="mb-4 text-4xl font-bold sm:text-5xl">OIKKO PARISHAD at a glance</h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-200">
-            Discover our mission, vision, and the people behind Oikkoparishad.
-          </p>
+          <h1 className="mb-4 text-4xl font-bold sm:text-5xl">OIKKO PARISHAD At a Glance</h1>
         </div>
       </section>
 
       <section className="animate-fade-in-up py-20">
         <div className="container-custom">
           <div className="mx-auto mb-16 w-full text-center">
-            <h2 className="mb-4 text-3xl font-bold text-primary sm:text-4xl">OIKKO PARISHAD at a glance</h2>
-            <div className="mx-auto mb-8 h-1 w-20 rounded bg-secondary" />
-            <div className="text-left space-y-4 text-lg leading-relaxed text-text-light">
-              <p>
-                Oikkoparishad is a non-political, non-profit, and non-government voluntary
-                social welfare organization dedicated to improving the lives of underserved
-                communities in Bangladesh. Founded 2024, we have been working tirelessly
-                to create lasting change through education, healthcare, and sustainable
-                development programs across the Sylhet division and beyond.
-              </p>
-              <p>
-                Our journey began with a small group of visionary
-                community leaders who recognized the urgent need for organized social welfare
-                initiatives in the Jalalabad region. What started as a modest effort to
-                provide basic education to underprivileged children has since grown into
-                a comprehensive development organization touching the lives of thousands
-                of families every year.
-              </p>
-              <p>
-                Today, we operate a wide range of programs spanning formal and non-formal
-                education, primary healthcare services, women empowerment and vocational
-                training, clean water and sanitation projects, disaster relief, and
-                community infrastructure development. Our dedicated team of staff,
-                volunteers, and partners work together to identify the most pressing needs
-                of the communities we serve and deliver targeted, impactful solutions.
-              </p>
-              <p>
-                We believe that sustainable development begins with empowered individuals.
-                By investing in education, we create opportunities for the next generation.
-                By providing healthcare, we ensure that families can thrive. By supporting
-                women with skills and resources, we build stronger, more resilient
-                communities. Every program we undertake is designed with long-term impact
-                in mind, ensuring that the benefits continue to grow for years to come.
-              </p>
-              <p>
-                Accountability and transparency are at the heart of everything we do. We
-                maintain the highest standards of financial stewardship and regularly
-                share our progress with donors, members, and the communities we serve.
-                Our governance structure ensures that decisions are made collectively
-                and in the best interest of those who rely on us.
-              </p>
-              <p>
-                As we look to the future, we remain committed to our founding mission while
-                embracing new approaches and technologies to enhance our effectiveness.
-                We invite you to explore our work, learn about our programs, and join us
-                in building a brighter, more equitable future for the people of Jalalabad
-                and Bangladesh.
-              </p>
+            <div className="text-left space-y-8 text-lg leading-relaxed text-text-light">
+              <div>
+                <p>
+                  The Bangladesh Garment Manufacturers and Exporters Association (BGMEA) is one of the largest trade associations in the country representing the readymade garment industry, particularly the woven garments, knitwear and sweater sub-sectors with equal importance. Starting its journey in 1983 today BGMEA takes care of an industry that is at the backbone of Bangladesh’s economy. Since the inception, BGMEA is dedicated to promote and facilitate the apparel industry through policy advocacy to the government, services to members, ensuring workers’ rights and social compliance at factories. BGMEA collaborates with local and international stakeholders, including brands and development partners to pave the way for development of Bangladesh apparel industry. Currently, BGMEA has around four thousand registered garment factories.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="mb-2 text-2xl font-bold text-primary">Mission</h3>
+                <p>
+                  BGMEA works with the vision to develop the RMG industry of Bangladesh and the economy of the country. Having such vision BGMEA chalked out the following missions and its strategic direction is paved accordingly –
+
+                  Firstly, to protect and promote the interests of the industry; thus ensuring a sustained growth in the foreign exchange earnings of the country.
+
+                  Secondly, BGMEA is committed to ensure all legitimate rights and privileges of the garment workers. The association also strives toward the betterment of the society and environment.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="mb-2 text-2xl font-bold text-primary">Members</h3>
+                <p>
+                  BGMEA started with only 12 members in early 1980's and presently has around 4500 member factories. Around 40% of BGMEA member factories are knitwear and sweater manufactures, and the rest 60% are woven garment manufactures. BGMEA member factories account for 100% woven garment exports of the country and more than 95% of sweater exports, while around half of the light knitwear exports are made by them.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="mb-2 text-2xl font-bold text-primary">How Oikko Parishad Runs</h3>
+                <p>
+                  BGMEA is being run by a 35-member elected Board of Directors. The Board of Directors is elected for a two-year term. Seven Vice Presidents having important portfolios, along with a secretariat of experienced officials, assists the President in formulating and executing vital policies and programs of the organization.  The President is the highest executive authority of the association. The Board of Directors takes assistance from different Standing Committees headed by a Chairman and composed of members having vast experience in the related fields. Strict adherence to democratic norms and code of conduct are being maintained in the BGMEA elections, which has been regarded as a trend setter in trade body elections of Bangladesh for its pre-election projection caucus and election-day discipline.
+                </p>
+              </div>
             </div>
           </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {quickLinks.map((link, index) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-all hover:shadow-lg hover:-translate-y-1"
-              >
-                <div className="mb-4 text-4xl">{link.icon}</div>
-                <h3 className="mb-2 text-lg font-bold text-dark group-hover:text-primary transition-colors">
-                  {link.title}
-                </h3>
-                <p className="text-sm text-text-light">{link.desc}</p>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
-
-      <section className="bg-gray-50 py-20">
-        <div className="container-custom">
-          <h2 className="mb-12 text-center text-3xl font-bold text-primary sm:text-4xl">
-            Our Core Values
-          </h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((value, index) => (
-              <div
-                key={value.title}
-                className="rounded-xl border border-gray-100 bg-white p-8 text-center shadow-sm"
-              >
-                <h3 className="mb-3 text-xl font-bold text-primary">{value.title}</h3>
-                <p className="text-sm leading-relaxed text-text-light">{value.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
     </>
   );
 }

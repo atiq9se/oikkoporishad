@@ -102,6 +102,21 @@ export const news: News[] = [
     ],
     content: "The third phase of the association's clean water initiative has begun, targeting fifteen water-scarce villages across the Chhatak and Derai areas.\n\nProject Scope:\n- 15 new deep tube wells to be installed across 9 villages\n- Over 3,000 residents expected to benefit directly\n- Water points to include hand pumps at community centres and dedicated women's facilities\n- Each site to include a raised platform, drainage, and a water availability signboard\n- Estimated completion of the first six sites by July 2026\n\nWhy This Phase Matters:\n- Average distance to nearest safe water source currently exceeds two kilometres\n- Women and girls account for the majority of time spent collecting water\n- Several target villages depend on contaminated shallow wells during the dry season\n- Two sites from the previous phase required unplanned repairs, prompting a design review\n\nThe association is coordinating with local authorities on land access and installation permissions. Water point management committees will be trained in each village, including basic maintenance, water quality testing, and fee collection for long-term sustainability.\n\nFunding for this phase is being supported by member contributions and external donors. A detailed project report with site locations and costs is available at the association office.",
   },
+  {
+    id: "news-007",
+    date: "March 30, 2026",
+    title: "Garment Worker Welfare Fund Expanded",
+    desc: "The welfare fund now provides health insurance and childcare support to more than 5,000 garment workers.",
+    category: "Garments",
+    author: "Welfare Committee",
+    readTime: "3 min read",
+    img: "https://images.pexels.com/photos/31112215/pexels-photo-31112215.jpeg?auto=compress&cs=tinysrgb&w=600",
+    images: [
+      "https://images.pexels.com/photos/31112215/pexels-photo-31112215.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/31090812/pexels-photo-31090812.jpeg?auto=compress&cs=tinysrgb&w=800",
+    ],
+    content: "The association has expanded its garment worker welfare fund, extending health insurance and childcare support to more than 5,000 workers across member factories in the region.\n\nWhat the Fund Covers:\n- Free health insurance for workers and their dependent children\n- Subsidised childcare at three factory-based day-care centres\n- Maternity support including paid leave and medical allowances\n- Free annual health screening and eye examinations\n- Emergency medical grants for serious illness or workplace injury\n\nWhy This Matters:\n- Most garment workers are the primary earners for their households\n- Childcare costs often force women to leave the workforce\n- Early screening helps detect treatable conditions before they become serious\n- A healthier workforce reduces absenteeism and improves productivity\n\nThe programme is being delivered in partnership with local clinics and licensed childcare providers. Workers can enrol through their factory welfare officer, and enrolment is voluntary and free of charge.\n\nThe welfare committee will publish a quarterly report on fund utilisation and beneficiary numbers to maintain transparency. Member factories interested in joining the scheme can contact the association office for an enrolment pack.",
+  },
 ];
 
 export function getNewsById(id: string) {

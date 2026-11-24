@@ -18,9 +18,7 @@ export default function Header() {
 
   const aboutDropdownItems = useMemo(() => [
     { href: "/glas", label: t("nav.aboutUs") },
-    { href: "/glas/office-bearers", label: t("nav.officeBearers") },
-    { href: "/glas/former-presidents", label: t("nav.history") },
-    { href: "/glas/mission-vision", label: t("nav.missionVision") },
+    { href: "/glas/committee", label: t("nav.officeBearers") },
     { href: "/contact", label: t("nav.contact") },
   ], [t]);
 
@@ -47,21 +45,15 @@ export default function Header() {
   const memberDropdownItems = useMemo(() => [
     { href: "/members/active", label: t("nav.activeMember") },
     { href: "/members/defaulter", label: t("nav.defaulter") },
-    { href: "/members/dead", label: t("nav.dead") },
-    { href: "/members/suspended", label: t("nav.suspended") },
-    { href: "/members/inactive", label: t("nav.inactive") },
-    { href: "/glas/office-staff", label: t("nav.officeStaff") },
     { href: "/membership/details", label: t("nav.membershipDetails") },
     { href: "/membership/become-a-member", label: t("nav.becomeMember") },
-    { href: "/membership/benefits", label: t("nav.membershipBenefits") },
   ], [t]);
 
   const electionDropdownItems = useMemo(() => [
-    { href: "/election/commissioner", label: t("nav.electionCommissioner") },
-    { href: "/election/voter-list", label: t("nav.voterList") },
-    { href: "/election/schedule", label: t("nav.electionSchedule") },
-    { href: "/election/valid-candidate-list", label: t("nav.validCandidateList") },
+    { href: "/election/commissioner", label: t("nav.electionSchedule") },
     { href: "/election/preliminary-voter-list", label: t("nav.preliminaryVoterList") },
+    { href: "/election/voter-list", label: t("nav.voterList") },
+    { href: "/election/valid-candidate-list", label: t("nav.validCandidateList") },
     { href: "/election/preliminary-candidate-list", label: t("nav.preliminaryCandidateList") },
     { href: "/election/final-candidate-list", label: t("nav.finalCandidateList") },
   ], [t]);

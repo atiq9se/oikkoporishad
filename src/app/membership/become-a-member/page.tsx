@@ -14,7 +14,6 @@ export default function BecomeAMemberPage() {
             Back to Home
           </Link>
           <h1 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">Become a Member</h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-200">Join Oikkoparishad and contribute to community development</p>
         </div>
       </section>
 

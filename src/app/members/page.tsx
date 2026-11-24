@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const memberCategories = [
   {
-    title: "Active Members",
+    title: "General Member List",
     count: 12,
     desc: "Currently active members participating in association activities",
     icon: "✓",
@@ -11,40 +11,13 @@ const memberCategories = [
     badge: "12",
   },
   {
-    title: "Defaulter",
+    title: "Associate Member List",
     count: 2,
-    desc: "Members with pending dues or obligations",
+    desc: "Associate members of the association",
     icon: "⚠",
     href: "/members/defaulter",
     color: "bg-orange-500",
     badge: "2",
-  },
-  {
-    title: "Deceased",
-    count: 2,
-    desc: "Members who have passed away - honored in memoriam",
-    icon: "†",
-    href: "/members/dead",
-    color: "bg-gray-600",
-    badge: "2",
-  },
-  {
-    title: "Suspended",
-    count: 2,
-    desc: "Members temporarily suspended from activities",
-    icon: "✕",
-    href: "/members/suspended",
-    color: "bg-red-500",
-    badge: "2",
-  },
-  {
-    title: "Inactive",
-    count: 3,
-    desc: "Members currently not participating in activities",
-    icon: "○",
-    href: "/members/inactive",
-    color: "bg-gray-400",
-    badge: "3",
   },
 ];
 
@@ -65,7 +38,7 @@ export default function MembersPage() {
             Members Directory
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-200">
-            Browse members by category. Total registered members: <span className="font-bold text-yellow-300">21</span>
+            Browse members by category. Total registered members: <span className="font-bold text-yellow-300">14</span>
           </p>
         </div>
       </section>

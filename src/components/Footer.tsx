@@ -71,21 +71,6 @@ export default function Footer() {
                   {t("nav.defaulter")}
                 </Link>
               </li>
-              <li>
-                <Link href="/members/dead" className="transition-colors hover:text-primary">
-                  {t("nav.dead")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/members/suspended" className="transition-colors hover:text-primary">
-                  {t("nav.suspended")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/members/inactive" className="transition-colors hover:text-primary">
-                  {t("nav.inactive")}
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -96,7 +81,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm text-text-light">
               <li className="flex items-start gap-2">
                 <span>📍</span>
-                <span>House-36, Flat-C2 (3rd Floor), Garib-E-Newaz Avenue, Sector-13, Uttara, Dhaka-1230. Bangladesh.</span>
+                <span>House-36, label-3, Garib-E-Newaz Avenue, Sector-13, Uttara, Dhaka-1230. Bangladesh.</span>
               </li>
               <li className="flex items-center gap-2">
                 <span>📞</span>

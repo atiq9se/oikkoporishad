@@ -195,7 +195,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {news.map((item, index) => (
+            {news.slice(0, 6).map((item, index) => (
               <div
                 key={item.id}
                 className="animate-fade-in-up opacity-0 group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-2xl"

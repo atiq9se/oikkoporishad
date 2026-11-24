@@ -9,7 +9,7 @@ export default function GarmentIndustryPage() {
         }}
       >
         <div className="container-custom text-center text-white">
-          <h1 className="mb-4 text-4xl font-bold sm:text-5xl">Garments Industry of Bangladesh</h1>
+          <h1 className="mb-4 text-4xl font-bold sm:text-5xl">About Garment Industry of Bangladesh</h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-200">
             Understanding Bangladesh's leading export sector
           </p>
@@ -20,48 +20,92 @@ export default function GarmentIndustryPage() {
         <div className="container-custom">
           <div className="mx-auto max-w-4xl">
             <div className="prose prose-gray dark:prose-invert max-w-none">
-              <h2 className="text-2xl font-bold text-primary mb-6">Overview</h2>
-              <p className="mb-6 text-lg text-text-light">
-                The Ready-Made Garments (RMG) sector is the backbone of Bangladesh's economy, 
-                accounting for over 80% of the country's total exports and employing millions of workers.
+              <p className="mb-6 text-lg leading-relaxed text-text-light">
+                The readymade garments industry acts as a catalyst for the development of Bangladesh.
+                The &quot;Made in Bangladesh&quot; tag has also brought glory for the country, making it
+                a prestigious brand across the globe. Bangladesh, which was once termed by cynics a
+                &quot;bottomless basket&quot; has now become a &quot;basket full of wonders.&quot; The country
+                with its limited resources has been maintaining 6% annual average GDP growth rate and
+                has brought about remarkable social and human development.
               </p>
-              
-              <h3 className="text-xl font-bold text-dark mb-4 mt-8">Key Statistics</h3>
-              <ul className="list-disc list-inside mb-6 text-text-light space-y-2">
-                <li>Export earnings: $40+ billion annually</li>
-                <li>Employment: 4+ million workers (majority women)</li>
-                <li>Global ranking: 2nd largest apparel exporter</li>
-                <li>Contribution to GDP: ~11%</li>
-              </ul>
-
-              <h3 className="text-xl font-bold text-dark mb-4 mt-8">Why Bangladesh?</h3>
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="p-4 rounded-lg bg-gray-50 border border-gray-100">
-                  <h4 className="font-bold text-primary mb-2">Competitive Labor Costs</h4>
-                  <p className="text-text-light">One of the most cost-effective manufacturing bases globally</p>
-                </div>
-                <div className="p-4 rounded-lg bg-gray-50 border border-gray-100">
-                  <h4 className="font-bold text-primary mb-2">Skilled Workforce</h4>
-                  <p className="text-text-light">Decades of experience with a large, trainable labor pool</p>
-                </div>
-                <div className="p-4 rounded-lg bg-gray-50 border border-gray-100">
-                  <h4 className="font-bold text-primary mb-2">Duty-Free Access</h4>
-                  <p className="text-text-light">GSP benefits to EU, Canada, Australia, and other markets</p>
-                </div>
-                <div className="p-4 rounded-lg bg-gray-50 border border-gray-100">
-                  <h4 className="font-bold text-primary mb-2">Vertical Integration</h4>
-                  <p className="text-text-light">Complete supply chain from yarn to finished garments</p>
-                </div>
+              <p className="mb-6 text-lg leading-relaxed text-text-light">
+                After the independence in 1971, Bangladesh was one of poorest countries in the world.
+                No major industries were developed in Bangladesh, when it was known as East Pakistan,
+                due to discriminatory attitude and policies of the government of the then West Pakistan.
+                So, rebuilding the war-ravaged country with limited resources appeared to be the
+                biggest challenge.
+              </p>
+              <p className="mb-6 text-lg leading-relaxed text-text-light">
+                The industry that has been making crucial contribution to rebuilding the country and
+                its economy is none other than the readymade garment (RMG) industry which is now the
+                single biggest export earner for Bangladesh. The sector accounts for 83% of total
+                export earnings of the country.
+              </p>
+              <p className="mb-6 text-lg leading-relaxed text-text-light">
+                When our only major export earner &quot;the jute industry&quot; started losing its golden
+                days, it is the RMG sector that replaced it, and then, to overtake it.
+              </p>
+              <div className="mb-6 grid gap-6 sm:grid-cols-2">
+                <figure className="overflow-hidden rounded-xl border border-gray-100 bg-gray-50">
+                  <img
+                    src="/images/garment-industry/rmg-bangladesh.jpg"
+                    alt="Workers sewing garments at a factory in Bangladesh"
+                    className="h-64 w-full object-cover"
+                    loading="lazy"
+                  />
+                  <figcaption className="px-4 py-3 text-sm text-text-light">
+                    Workers at a readymade garment factory in Bangladesh
+                  </figcaption>
+                </figure>
+                <figure className="overflow-hidden rounded-xl border border-gray-100 bg-gray-50">
+                  <img
+                    src="/images/garment-industry/denim-qa-checking.jpg"
+                    alt="Garment workers checking finished denim products on a factory floor"
+                    className="h-64 w-full object-cover"
+                    loading="lazy"
+                  />
+                  <figcaption className="px-4 py-3 text-sm text-text-light">
+                    Quality checking of finished garments before export
+                  </figcaption>
+                </figure>
               </div>
-
-              <h3 className="text-xl font-bold text-dark mb-4 mt-8">Sustainability & Compliance</h3>
-              <p className="mb-4 text-text-light">
-                Bangladesh leads globally in green factory certifications (LEED), with the highest number 
-                of USGBC LEED-certified green garment factories in the world.
+              <p className="mb-6 text-lg leading-relaxed text-text-light">
+                The apparel industry of Bangladesh started its journey in the 1980s and has come to
+                the position it is in today. The late NuroolQuader Khan was the pioneer of the
+                readymade garment industry in Bangladesh. He had a vision of how to transform the
+                country. In 1978, he sent 130 trainees to South Korea where they learned how to
+                produce readymade garments.
               </p>
-              <p className="text-text-light">
-                Continuous improvements in workplace safety, worker welfare, and environmental compliance 
-                through initiatives like the Accord and Alliance.
+              <p className="mb-6 text-lg leading-relaxed text-text-light">
+                With those trainees, he set up the first factory &quot;Desh Garments&quot; to produce
+                garments for export. At the same time, the late Akhter Mohammad Musa of Bond
+                Garments, the late Mohammad Reazuddin of Reaz Garments, MdHumayun of Paris Garments,
+                Engineer Mohammad Fazlul Azim of Azim Group, Major (Retd) Abdul Mannan of Sunman
+                Group, M Shamsur Rahman of Stylecraft Limited, the first President of BGMEA, AM Subid
+                Ali of Aristocrat Limited also came forward and established some of the first garment
+                factories in Bangladesh.
+              </p>
+              <p className="mb-6 text-lg leading-relaxed text-text-light">
+                Following their footsteps, other prudent and hardworking entrepreneurs started RMG
+                factories in the country. Since then, Bangladeshi garment industry did not need to
+                look behind. Despite many difficulties faced by the sector over the past years, it has
+                carved a niche in world market and kept continuing to show robust performance.
+              </p>
+              <p className="mb-6 text-lg leading-relaxed text-text-light">
+                Since the early days, different sources of impetus have contributed to the development
+                and maturity of the industry at various stages. We learned about child-labour in 1994,
+                and successfully made the industry free from child labour in 1995.
+              </p>
+              <p className="mb-6 text-lg leading-relaxed text-text-light">
+                The MFA-quota was a blessing to our industry to take root, gradually develop and
+                mature. While the quota was approaching to an end in 2004, it was predicted by many
+                that the phase-out would incur a massive upset in our export.
+              </p>
+              <p className="text-lg leading-relaxed text-text-light">
+                However, the post-MFA era is another story of success. Proving all the predictions
+                wrong, we conquered the post-MFA challenges. Now the apparel industry is Bangladesh&apos;s
+                biggest export earner with value of over $27.9 billion of exports in 2019-20 financial
+                year.
               </p>
             </div>
           </div>

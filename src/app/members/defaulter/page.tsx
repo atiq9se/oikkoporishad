@@ -18,23 +18,37 @@ const defaulterMembers = [
 export default function DefaulterMembersPage() {
   return (
     <>
+      <section
+        className="animate-fade-in-up opacity-0 flex min-h-[40vh] items-center justify-center bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/breadcrumb_bg.png')",
+        }}
+      >
+        <div className="container-custom text-center text-white">
+          <nav aria-label="Breadcrumb" className="mb-6 inline-flex flex-wrap items-center justify-center gap-2 text-sm font-medium">
+            <Link href="/" className="text-yellow-300 transition-colors hover:text-white">
+              Home
+            </Link>
+            <svg className="h-3 w-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+            <Link href="/members" className="text-yellow-300 transition-colors hover:text-white">
+              Members
+            </Link>
+            <svg className="h-3 w-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="text-gray-300">Associate Member List</span>
+          </nav>
+          <h1 className="mb-4 text-4xl font-bold sm:text-5xl">
+            Associate Member List
+          </h1>
+        </div>
+      </section>
+
       <section className="animate-fade-in-up opacity-0 bg-accent py-16">
         <div className="container-custom">
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <Link href="/members" className="inline-flex items-center gap-2 mb-4 text-sm font-medium text-primary-light hover:text-primary transition-colors">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Back to Members
-            </Link>
-            <h1 className="mb-3 text-3xl font-bold text-primary sm:text-4xl md:text-5xl">
-              Defaulter Members
-            </h1>
-            <p className="text-lg text-text-light">
-              {defaulterMembers.length} members with pending dues
-            </p>
-          </div>
-
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {defaulterMembers.map((member, index) => (
               <div
