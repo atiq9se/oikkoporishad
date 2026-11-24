@@ -63,8 +63,7 @@ src/
 │   ├── membership/        # Membership pages
 │   ├── news/              # News pages
 │   ├── notice/            # Notice pages
-│   ├── opinion/           # Opinion pages
-│   └── programs/          # Events/Programs pages
+│   └── opinion/           # Opinion pages
 ├── components/            # React components
 │   ├── Header.tsx         # Navigation header
 │   ├── Footer.tsx         # Site footer

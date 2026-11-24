@@ -39,11 +39,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/programs" className="transition-colors hover:text-primary">
-                  {t("nav.events")}
-                </Link>
-              </li>
-              <li>
                 <Link href="/gallery" className="transition-colors hover:text-primary">
                   {t("nav.gallery")}
                 </Link>
@@ -69,6 +64,21 @@ export default function Footer() {
               <li>
                 <Link href="/members/defaulter" className="transition-colors hover:text-primary">
                   {t("nav.defaulter")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/membership/details" className="transition-colors hover:text-primary">
+                  {t("nav.membershipDetails")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/membership/become-a-member" className="transition-colors hover:text-primary">
+                  {t("nav.becomeMember")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/members/events" className="transition-colors hover:text-primary">
+                  {t("nav.events")}
                 </Link>
               </li>
             </ul>
